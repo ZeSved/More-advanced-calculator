@@ -1,0 +1,17 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button{
+  width: 30px;
+  height: 30px;
+  margin: 4px;
+}
+
+p{
+  width: 50px;
+}
