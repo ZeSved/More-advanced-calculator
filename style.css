@@ -1,17 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Silkscreen&display=swap');
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+  font-size: 30px;
+  font-family: 'Noto Sans Mono', monospace;
+  user-select: none;
 }
 
 button{
-  width: 30px;
-  height: 30px;
-  margin: 4px;
+  width: 60px;
+  height: 60px;
+  margin: 7px;
+  border: 2px;
+  background-color: #171747;
+  color: #ffffff;
+  border-color: #066e7c;
+  border-style: solid;
+  border-radius: 500px;
 }
 
 p{
-  width: 50px;
+  width: 350px;
+}
+
+body{
+  background-color: #0d0e47;
+}
+
+.main{
+  background-color: #030129;
+  width: 370px;
+  margin: auto;
+  border-radius: 30px;
+  height: 480px;
+  position: relative;
+  margin-top: 270px;
+  padding-top: 20px;
+}
+
+.result{
+  color: #ffffff;
+  height: 60px;
+  width: 310px;
+  margin: auto;
+  text-align: right;
+  background-color: #100e2b;
+  border-radius: 15px;
+  border-top: 20px;
+  padding-right: 8px;
+  padding-top: 8px;
+  margin-bottom: 20px;
 }
