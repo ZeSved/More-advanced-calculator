@@ -19,66 +19,148 @@ const dot = document.querySelector('.dot')
 const ce = document.querySelector('.CE')
 const negate = document.querySelector('.negate')
 
-let numbers: string = ''
+let z = false
+let numbers: string = '0'
+resultName()
 
 one?.addEventListener('click', () => {
   if (numbers.length > 15) return
-  numbers += '1'
-  resultName()
+  if (numbers == '0' && z == false){
+    numbers = '1'
+    z = false
+    resultName()
+  } else if (z == true) {
+    numbers += '1'
+    console.log(numbers)
+    console.log(z)
+    resultName()
+  }
 })
 
 two?.addEventListener('click', () => {
   if (numbers.length > 15) return
-  numbers += '2'
-  resultName()
+  if (numbers == '0' && z == false){
+    numbers = '2'
+    z = false
+    resultName()
+  } else if (z == true) {
+    numbers += '2'
+    console.log(numbers)
+    console.log(z)
+    resultName()
+  }
 })
 
 three?.addEventListener('click', () => {
   if (numbers.length > 15) return
-  numbers += '3'
-  resultName()
+  if (numbers == '0' && z == false){
+    numbers = '3'
+    z = true
+    resultName()
+  } else if (z == true) {
+    numbers += '3'
+    console.log(numbers)
+    console.log(z)
+    resultName()
+  }
 })
 
 four?.addEventListener('click', () => {
   if (numbers.length > 15) return
-  numbers += '4'
-  resultName()
+  if (numbers == '0' && z == false){
+    numbers = '4'
+    z = true
+    resultName()
+  } else if (z == true) {
+    numbers += '4'
+    console.log(numbers)
+    console.log(z)
+    resultName()
+  }
 })
 
 five?.addEventListener('click', () => {
   if (numbers.length > 15) return
-  numbers += '5'
-  resultName()
+  if (numbers == '0' && z == false){
+    numbers = '5'
+    z = true
+    resultName()
+  } else if (z == true) {
+    numbers += '5'
+    console.log(numbers)
+    console.log(z)
+    resultName()
+  }
 })
 
 six?.addEventListener('click', () => {
   if (numbers.length > 15) return
-  numbers += '6'
-  resultName()
+  if (numbers == '0' && z == false){
+    numbers = '6'
+    z = true
+    resultName()
+  } else if (z == true) {
+    numbers += '6'
+    console.log(numbers)
+    console.log(z)
+    resultName()
+  }
 })
 
 seven?.addEventListener('click', () => {
   if (numbers.length > 15) return
-  numbers += '7'
-  resultName()
+  if (numbers == '0' && z == false){
+    numbers = '7'
+    z = true
+    resultName()
+  } else if (z == true) {
+    numbers += '7'
+    console.log(numbers)
+    console.log(z)
+    resultName()
+  }
 })
 
 eight?.addEventListener('click', () => {
   if (numbers.length > 15) return
-  numbers += '8'
-  resultName()
+  if (numbers == '0' && z == false){
+    numbers = '8'
+    z = true
+    resultName()
+  } else if (z == true) {
+    numbers += '8'
+    console.log(numbers)
+    console.log(z)
+    resultName()
+  }
 })
 
 nine?.addEventListener('click', () => {
   if (numbers.length > 15) return
-  numbers += '9'
-  resultName()
+  if (numbers == '0' && z == false){
+    numbers = '9'
+    z = true
+    resultName()
+  } else if (z == true) {
+    numbers += '9'
+    console.log(numbers)
+    console.log(z)
+    resultName()
+  }
 })
 
 zero?.addEventListener('click', () => {
   if (numbers.length > 15) return
-  numbers += '0'
-  resultName()
+  if (numbers == '0' && z == false){
+    numbers = '0'
+    z = true
+    resultName()
+  } else if (z == true) {
+    numbers += '0'
+    console.log(numbers)
+    console.log(z)
+    resultName()
+  }
 })
 
 plus?.addEventListener('click', () => {
@@ -141,7 +223,7 @@ negate?.addEventListener('click', () => {
 })
 
 equal?.addEventListener('click', () => {
-  if (numbers.length > 15) return
+  let final = Function('return ' + numbers)()
   if (numbers.startsWith('/') || 
   numbers.startsWith('+') || 
   numbers.startsWith('-') || 
@@ -154,17 +236,20 @@ equal?.addEventListener('click', () => {
   numbers.endsWith('.')){
     result.textContent = 'Error'
     numbers = ''
-  } else {
-    let final = Function('return ' + numbers)()
-    console.log(final)
+  } else if (final.length > 15){
+    final.splice
+  }
+  
+  else {
     result.textContent = final
     numbers = ''
   }
 })
 
 ce?.addEventListener('click', () => {
-  numbers = ''
-  result.textContent = ''
+  z = false
+  numbers = '0'
+  result.textContent = numbers
 })
 
 function resultName() {
