@@ -18,156 +18,157 @@ const result = document.querySelector('.result');
 const dot = document.querySelector('.dot');
 const ce = document.querySelector('.CE');
 const negate = document.querySelector('.negate');
-let z = false;
+let startz = false;
+let final;
 let numbers = '0';
 resultName();
 one?.addEventListener('click', () => {
     if (numbers.length > 15)
         return;
-    if (numbers == '0' && z == false) {
+    if (numbers == '0' && startz == false) {
         numbers = '1';
-        z = false;
+        startz = true;
         resultName();
     }
-    else if (z == true) {
+    else {
         numbers += '1';
         console.log(numbers);
-        console.log(z);
+        console.log(startz);
         resultName();
     }
 });
 two?.addEventListener('click', () => {
     if (numbers.length > 15)
         return;
-    if (numbers == '0' && z == false) {
+    if (numbers == '0' && startz == false) {
         numbers = '2';
-        z = false;
+        startz = true;
         resultName();
     }
-    else if (z == true) {
+    else {
         numbers += '2';
         console.log(numbers);
-        console.log(z);
+        console.log(startz);
         resultName();
     }
 });
 three?.addEventListener('click', () => {
     if (numbers.length > 15)
         return;
-    if (numbers == '0' && z == false) {
+    if (numbers == '0' && startz == false) {
         numbers = '3';
-        z = true;
+        startz = true;
         resultName();
     }
-    else if (z == true) {
+    else {
         numbers += '3';
         console.log(numbers);
-        console.log(z);
+        console.log(startz);
         resultName();
     }
 });
 four?.addEventListener('click', () => {
     if (numbers.length > 15)
         return;
-    if (numbers == '0' && z == false) {
+    if (numbers == '0' && startz == false) {
         numbers = '4';
-        z = true;
+        startz = true;
         resultName();
     }
-    else if (z == true) {
+    else {
         numbers += '4';
         console.log(numbers);
-        console.log(z);
+        console.log(startz);
         resultName();
     }
 });
 five?.addEventListener('click', () => {
     if (numbers.length > 15)
         return;
-    if (numbers == '0' && z == false) {
+    if (numbers == '0' && startz == false) {
         numbers = '5';
-        z = true;
+        startz = true;
         resultName();
     }
-    else if (z == true) {
+    else {
         numbers += '5';
         console.log(numbers);
-        console.log(z);
+        console.log(startz);
         resultName();
     }
 });
 six?.addEventListener('click', () => {
     if (numbers.length > 15)
         return;
-    if (numbers == '0' && z == false) {
+    if (numbers == '0' && startz == false) {
         numbers = '6';
-        z = true;
+        startz = true;
         resultName();
     }
-    else if (z == true) {
+    else {
         numbers += '6';
         console.log(numbers);
-        console.log(z);
+        console.log(startz);
         resultName();
     }
 });
 seven?.addEventListener('click', () => {
     if (numbers.length > 15)
         return;
-    if (numbers == '0' && z == false) {
+    if (numbers == '0' && startz == false) {
         numbers = '7';
-        z = true;
+        startz = true;
         resultName();
     }
-    else if (z == true) {
+    else {
         numbers += '7';
         console.log(numbers);
-        console.log(z);
+        console.log(startz);
         resultName();
     }
 });
 eight?.addEventListener('click', () => {
     if (numbers.length > 15)
         return;
-    if (numbers == '0' && z == false) {
+    if (numbers == '0' && startz == false) {
         numbers = '8';
-        z = true;
+        startz = true;
         resultName();
     }
-    else if (z == true) {
+    else {
         numbers += '8';
         console.log(numbers);
-        console.log(z);
+        console.log(startz);
         resultName();
     }
 });
 nine?.addEventListener('click', () => {
     if (numbers.length > 15)
         return;
-    if (numbers == '0' && z == false) {
+    if (numbers == '0' && startz == false) {
         numbers = '9';
-        z = true;
+        startz = true;
         resultName();
     }
-    else if (z == true) {
+    else {
         numbers += '9';
         console.log(numbers);
-        console.log(z);
+        console.log(startz);
         resultName();
     }
 });
 zero?.addEventListener('click', () => {
     if (numbers.length > 15)
         return;
-    if (numbers == '0' && z == false) {
+    if (numbers == '0' && startz == false) {
         numbers = '0';
-        z = true;
+        startz = true;
         resultName();
     }
-    else if (z == true) {
+    else {
         numbers += '0';
         console.log(numbers);
-        console.log(z);
+        console.log(startz);
         resultName();
     }
 });
@@ -231,11 +232,7 @@ dot?.addEventListener('click', () => {
     numbers += '.';
     resultName();
 });
-negate?.addEventListener('click', () => {
-    // TODO
-});
 equal?.addEventListener('click', () => {
-    let final = Function('return ' + numbers)();
     if (numbers.startsWith('/') ||
         numbers.startsWith('+') ||
         numbers.startsWith('-') ||
@@ -249,16 +246,12 @@ equal?.addEventListener('click', () => {
         result.textContent = 'Error';
         numbers = '';
     }
-    else if (final.length > 15) {
-        final.splice;
-    }
-    else {
-        result.textContent = final;
-        numbers = '';
-    }
+    final = Function('return ' + numbers)();
+    result.textContent = final;
+    numbers = '';
 });
 ce?.addEventListener('click', () => {
-    z = false;
+    startz = false;
     numbers = '0';
     result.textContent = numbers;
 });
