@@ -19,231 +19,247 @@ const dot = document.querySelector('.dot')
 const ce = document.querySelector('.CE')
 const negate = document.querySelector('.negate')
 
+let eq = false
 let startz = false
 let final: any
 let numbers: string = '0'
+
 resultName()
 
-one?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers == '0' && startz == false){
-    numbers = '1'
-    startz = true
-    resultName()
-  } else {
-    numbers += '1'
-    console.log(numbers)
-    console.log(startz)
-    resultName()
-  }
-})
+number()
+function number(){ // All numbers, 0-9
+  one?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers == '0' && startz == false){
+      numbers = '1'
+      startz = true
+      eq = false
+      resultName()
+    } else {
+      numbers += '1'
+      eq = false
+      resultName()
+    }
+  })
 
-two?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers == '0' && startz == false){
-    numbers = '2'
-    startz = true
-    resultName()
-  } else {
-    numbers += '2'
-    console.log(numbers)
-    console.log(startz)
-    resultName()
-  }
-})
+  two?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers == '0' && startz == false){
+      numbers = '2'
+      startz = true
+      eq = false
+      resultName()
+    } else {
+      numbers += '2'
+      eq = false
+      resultName()
+    }
+  })
 
-three?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers == '0' && startz == false){
-    numbers = '3'
-    startz = true
-    resultName()
-  } else {
-    numbers += '3'
-    console.log(numbers)
-    console.log(startz)
-    resultName()
-  }
-})
+  three?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers == '0' && startz == false){
+      numbers = '3'
+      startz = true
+      eq = false
+      resultName()
+    } else {
+      numbers += '3'
+      eq = false
+      resultName()
+    }
+  })
 
-four?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers == '0' && startz == false){
-    numbers = '4'
-    startz = true
-    resultName()
-  } else {
-    numbers += '4'
-    console.log(numbers)
-    console.log(startz)
-    resultName()
-  }
-})
+  four?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers == '0' && startz == false){
+      numbers = '4'
+      startz = true
+      eq = false
+      resultName()
+    } else {
+      numbers += '4'
+      eq = false
+      resultName()
+    }
+  })
 
-five?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers == '0' && startz == false){
-    numbers = '5'
-    startz = true
-    resultName()
-  } else {
-    numbers += '5'
-    console.log(numbers)
-    console.log(startz)
-    resultName()
-  }
-})
+  five?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers == '0' && startz == false){
+      numbers = '5'
+      startz = true
+      eq = false
+      resultName()
+    } else {
+      numbers += '5'
+      eq = false
+      resultName()
+    }
+  })
 
-six?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers == '0' && startz == false){
-    numbers = '6'
-    startz = true
-    resultName()
-  } else {
-    numbers += '6'
-    console.log(numbers)
-    console.log(startz)
-    resultName()
-  }
-})
+  six?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers == '0' && startz == false){
+      numbers = '6'
+      startz = true
+      eq = false
+      resultName()
+    } else {
+      numbers += '6'
+      eq = false
+      resultName()
+    }
+  })
 
-seven?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers == '0' && startz == false){
-    numbers = '7'
-    startz = true
+  seven?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers == '0' && startz == false){
+      numbers = '7'
+      startz = true
+      eq = false
+      resultName()
+    } else {
+      numbers += '7'
+      eq = false
+      resultName()
+    }
+  })
+
+  eight?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers == '0' && startz == false){
+      numbers = '8'
+      startz = true
+      eq = false
+      resultName()
+    } else {
+      numbers += '8'
+      eq = false
+      resultName()
+    }
+  })
+
+  nine?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers == '0' && startz == false){
+      numbers = '9'
+      startz = true
+      eq = false
+      resultName()
+    } else {
+      numbers += '9'
+      eq = false
+      resultName()
+    }
+  })
+
+  zero?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers == '0' && startz == false){
+      numbers = '0'
+      startz = true
+      eq = false
+      resultName()
+    } else {
+      numbers += '0'
+      eq = false
+      resultName()
+    }
+  })
+}
+
+arithmetics()
+function arithmetics(){ // Minus, plus, divide, multiply
+  plus?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers.endsWith('/') || 
+    numbers.endsWith('+') || 
+    numbers.endsWith('-') || 
+    numbers.endsWith('*') || 
+    numbers.endsWith('.')) return
+    numbers += '+'
     resultName()
-  } else {
-    numbers += '7'
-    console.log(numbers)
-    console.log(startz)
+  })
+
+  minus?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers.endsWith('/') || 
+    numbers.endsWith('+') || 
+    numbers.endsWith('-') || 
+    numbers.endsWith('*') || 
+    numbers.endsWith('.')) return
+    numbers += '-'
     resultName()
-  }
-})
+  })
 
-eight?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers == '0' && startz == false){
-    numbers = '8'
-    startz = true
+  multiply?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers.endsWith('/') || 
+    numbers.endsWith('+') || 
+    numbers.endsWith('-') || 
+    numbers.endsWith('*') || 
+    numbers.endsWith('.')) return
+    numbers += '*'
     resultName()
-  } else {
-    numbers += '8'
-    console.log(numbers)
-    console.log(startz)
+  })
+
+  divide?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers.endsWith('/') || 
+    numbers.endsWith('+') || 
+    numbers.endsWith('-') || 
+    numbers.endsWith('*') || 
+    numbers.endsWith('.')) return
+    numbers += '/'
     resultName()
-  }
-})
+  })
+}
 
-nine?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers == '0' && startz == false){
-    numbers = '9'
-    startz = true
+otherButtons()
+function otherButtons(){ // Dot, equal, CE
+  dot?.addEventListener('click', () => {
+    if (numbers.length > 15) return
+    if (numbers.endsWith('/') || 
+    numbers.endsWith('+') || 
+    numbers.endsWith('-') || 
+    numbers.endsWith('*') || 
+    numbers.endsWith('.')) return
+    numbers += '.'
     resultName()
-  } else {
-    numbers += '9'
-    console.log(numbers)
-    console.log(startz)
-    resultName()
-  }
-})
+  })
 
-zero?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers == '0' && startz == false){
-    numbers = '0'
-    startz = true
-    resultName()
-  } else {
-    numbers += '0'
-    console.log(numbers)
-    console.log(startz)
-    resultName()
-  }
-})
+  equal?.addEventListener('click', () => {
+    if (eq == false) {
+      if (numbers.startsWith('/') || 
+      numbers.startsWith('+') || 
+      numbers.startsWith('-') || 
+      numbers.startsWith('*') || 
+      numbers.startsWith('.') ||
+      numbers.endsWith('/') || 
+      numbers.endsWith('+') || 
+      numbers.endsWith('-') || 
+      numbers.endsWith('*') || 
+      numbers.endsWith('.')){
+        result.textContent = 'Error'
+        numbers = ''
+      }
 
-plus?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers.endsWith('/') || 
-  numbers.endsWith('+') || 
-  numbers.endsWith('-') || 
-  numbers.endsWith('*') || 
-  numbers.endsWith('.')) return
-  numbers += '+'
-  resultName()
-})
-
-minus?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers.endsWith('/') || 
-  numbers.endsWith('+') || 
-  numbers.endsWith('-') || 
-  numbers.endsWith('*') || 
-  numbers.endsWith('.')) return
-  numbers += '-'
-  resultName()
-})
-
-multiply?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers.endsWith('/') || 
-  numbers.endsWith('+') || 
-  numbers.endsWith('-') || 
-  numbers.endsWith('*') || 
-  numbers.endsWith('.')) return
-  numbers += '*'
-  resultName()
-})
-
-divide?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers.endsWith('/') || 
-  numbers.endsWith('+') || 
-  numbers.endsWith('-') || 
-  numbers.endsWith('*') || 
-  numbers.endsWith('.')) return
-  numbers += '/'
-  resultName()
-})
-
-dot?.addEventListener('click', () => {
-  if (numbers.length > 15) return
-  if (numbers.endsWith('/') || 
-  numbers.endsWith('+') || 
-  numbers.endsWith('-') || 
-  numbers.endsWith('*') || 
-  numbers.endsWith('.')) return
-  numbers += '.'
-  resultName()
-})
-
-equal?.addEventListener('click', () => {
-  if (numbers.startsWith('/') || 
-  numbers.startsWith('+') || 
-  numbers.startsWith('-') || 
-  numbers.startsWith('*') || 
-  numbers.startsWith('.') ||
-  numbers.endsWith('/') || 
-  numbers.endsWith('+') || 
-  numbers.endsWith('-') || 
-  numbers.endsWith('*') || 
-  numbers.endsWith('.')){
-    result.textContent = 'Error'
-    numbers = ''
-  }
+      final = Function('return ' + numbers)()
+      result.textContent = final
+      numbers = ''
+      eq = true
+    } else {
+      return
+    }
+  })
   
-  final = Function('return ' + numbers)()
-  result.textContent = final
-  numbers = ''
-})
-
-ce?.addEventListener('click', () => {
-  startz = false
-  numbers = '0'
-  result.textContent = numbers
-})
+  ce?.addEventListener('click', () => {
+    startz = false
+    numbers = '0'
+    result.textContent = numbers
+  })
+}
 
 function resultName() {
   result.textContent = numbers
