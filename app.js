@@ -24,6 +24,8 @@ let eq = false;
 let startz = false;
 let final;
 let numbers = '0';
+let temp1;
+let poten = false;
 resultName();
 number();
 function number() {
@@ -34,18 +36,21 @@ function number() {
             numbers = '1';
             startz = true;
             eq = false;
+            poten = true;
             resultName();
         }
         else {
             numbers += '1';
             eq = false;
+            poten = true;
             resultName();
         }
         if (numbers[numbers.length - 2].endsWith('(') ||
             numbers[numbers.length - 3].endsWith('(')) {
             numbers += ')';
-            eq = false;
             resultName();
+            temp1 = numbers.replace('^(', '**');
+            numbers = temp1.replace(')', '');
         }
     });
     two?.addEventListener('click', () => {
@@ -55,18 +60,21 @@ function number() {
             numbers = '2';
             startz = true;
             eq = false;
+            poten = true;
             resultName();
         }
         else {
             numbers += '2';
             eq = false;
             resultName();
+            poten = true;
         }
         if (numbers[numbers.length - 2].endsWith('(') ||
             numbers[numbers.length - 3].endsWith('(')) {
             numbers += ')';
-            eq = false;
             resultName();
+            temp1 = numbers.replace('^(', '**');
+            numbers = temp1.replace(')', '');
         }
     });
     three?.addEventListener('click', () => {
@@ -76,12 +84,21 @@ function number() {
             numbers = '3';
             startz = true;
             eq = false;
+            poten = true;
             resultName();
         }
         else {
             numbers += '3';
             eq = false;
             resultName();
+            poten = true;
+        }
+        if (numbers[numbers.length - 2].endsWith('(') ||
+            numbers[numbers.length - 3].endsWith('(')) {
+            numbers += ')';
+            resultName();
+            temp1 = numbers.replace('^(', '**');
+            numbers = temp1.replace(')', '');
         }
     });
     four?.addEventListener('click', () => {
@@ -91,12 +108,21 @@ function number() {
             numbers = '4';
             startz = true;
             eq = false;
+            poten = true;
             resultName();
         }
         else {
             numbers += '4';
             eq = false;
             resultName();
+            poten = true;
+        }
+        if (numbers[numbers.length - 2].endsWith('(') ||
+            numbers[numbers.length - 3].endsWith('(')) {
+            numbers += ')';
+            resultName();
+            temp1 = numbers.replace('^(', '**');
+            numbers = temp1.replace(')', '');
         }
     });
     five?.addEventListener('click', () => {
@@ -106,12 +132,21 @@ function number() {
             numbers = '5';
             startz = true;
             eq = false;
+            poten = true;
             resultName();
         }
         else {
             numbers += '5';
             eq = false;
             resultName();
+            poten = true;
+        }
+        if (numbers[numbers.length - 2].endsWith('(') ||
+            numbers[numbers.length - 3].endsWith('(')) {
+            numbers += ')';
+            resultName();
+            temp1 = numbers.replace('^(', '**');
+            numbers = temp1.replace(')', '');
         }
     });
     six?.addEventListener('click', () => {
@@ -121,12 +156,21 @@ function number() {
             numbers = '6';
             startz = true;
             eq = false;
+            poten = true;
             resultName();
         }
         else {
             numbers += '6';
             eq = false;
             resultName();
+            poten = true;
+        }
+        if (numbers[numbers.length - 2].endsWith('(') ||
+            numbers[numbers.length - 3].endsWith('(')) {
+            numbers += ')';
+            resultName();
+            temp1 = numbers.replace('^(', '**');
+            numbers = temp1.replace(')', '');
         }
     });
     seven?.addEventListener('click', () => {
@@ -136,12 +180,21 @@ function number() {
             numbers = '7';
             startz = true;
             eq = false;
+            poten = true;
             resultName();
         }
         else {
             numbers += '7';
             eq = false;
             resultName();
+            poten = true;
+        }
+        if (numbers[numbers.length - 2].endsWith('(') ||
+            numbers[numbers.length - 3].endsWith('(')) {
+            numbers += ')';
+            resultName();
+            temp1 = numbers.replace('^(', '**');
+            numbers = temp1.replace(')', '');
         }
     });
     eight?.addEventListener('click', () => {
@@ -151,12 +204,21 @@ function number() {
             numbers = '8';
             startz = true;
             eq = false;
+            poten = true;
             resultName();
         }
         else {
             numbers += '8';
             eq = false;
             resultName();
+            poten = true;
+        }
+        if (numbers[numbers.length - 2].endsWith('(') ||
+            numbers[numbers.length - 3].endsWith('(')) {
+            numbers += ')';
+            resultName();
+            temp1 = numbers.replace('^(', '**');
+            numbers = temp1.replace(')', '');
         }
     });
     nine?.addEventListener('click', () => {
@@ -166,12 +228,21 @@ function number() {
             numbers = '9';
             startz = true;
             eq = false;
+            poten = true;
             resultName();
         }
         else {
             numbers += '9';
             eq = false;
             resultName();
+            poten = true;
+        }
+        if (numbers[numbers.length - 2].endsWith('(') ||
+            numbers[numbers.length - 3].endsWith('(')) {
+            numbers += ')';
+            resultName();
+            temp1 = numbers.replace('^(', '**');
+            numbers = temp1.replace(')', '');
         }
     });
     zero?.addEventListener('click', () => {
@@ -181,12 +252,21 @@ function number() {
             numbers = '0';
             startz = true;
             eq = false;
+            poten = true;
             resultName();
         }
         else {
             numbers += '0';
             eq = false;
+            poten = true;
             resultName();
+        }
+        if (numbers[numbers.length - 2].endsWith('(') ||
+            numbers[numbers.length - 3].endsWith('(')) {
+            numbers += ')';
+            resultName();
+            temp1 = numbers.replace('^(', '**');
+            numbers = temp1.replace(')', '');
         }
     });
 }
@@ -202,7 +282,13 @@ function arithmetics() {
             numbers.endsWith('.'))
             return;
         numbers += '+';
+        if (numbers.includes('**') && numbers.includes('+')) {
+            temp1 = numbers.replace('**', '^(');
+            numbers = temp1.replace('+', ')');
+            numbers += '+';
+        }
         resultName();
+        poten = false;
     });
     minus?.addEventListener('click', () => {
         if (numbers.length > 15)
@@ -214,7 +300,13 @@ function arithmetics() {
             numbers.endsWith('.'))
             return;
         numbers += '-';
+        if (numbers.includes('**') && numbers.includes('-')) {
+            temp1 = numbers.replace('**', '^(');
+            numbers = temp1.replace('-', ')');
+            numbers += '-';
+        }
         resultName();
+        poten = false;
     });
     multiply?.addEventListener('click', () => {
         if (numbers.length > 15)
@@ -226,7 +318,13 @@ function arithmetics() {
             numbers.endsWith('.'))
             return;
         numbers += '*';
+        if (numbers.includes('**') && numbers.includes('*')) {
+            temp1 = numbers.replace('**', '^(');
+            numbers = temp1.replace('*', ')');
+            numbers += '*';
+        }
         resultName();
+        poten = false;
     });
     divide?.addEventListener('click', () => {
         if (numbers.length > 15)
@@ -238,7 +336,13 @@ function arithmetics() {
             numbers.endsWith('.'))
             return;
         numbers += '/';
+        if (numbers.includes('**') && numbers.includes('/')) {
+            temp1 = numbers.replace('**', '^(');
+            numbers = temp1.replace('/', ')');
+            numbers += '/';
+        }
         resultName();
+        poten = false;
     });
 }
 otherButtons();
@@ -254,9 +358,19 @@ function otherButtons() {
             return;
         numbers += '.';
         resultName();
+        poten = false;
     });
     equal?.addEventListener('click', () => {
         if (eq == false) {
+            if (numbers.includes('^(') && numbers.includes(')')) {
+                temp1 = numbers.replace('^(', '**');
+                numbers = temp1.replace(')', '');
+                final = Function('return ' + numbers)();
+                numbers = '';
+                eq = true;
+                result.textContent = final;
+                return;
+            }
             if (numbers.startsWith('/') ||
                 numbers.startsWith('+') ||
                 numbers.startsWith('-') ||
@@ -269,6 +383,7 @@ function otherButtons() {
                 numbers.endsWith('.')) {
                 result.textContent = 'Error';
                 numbers = '';
+                return;
             }
             final = Function('return ' + numbers)();
             result.textContent = final;
@@ -285,8 +400,14 @@ function otherButtons() {
         result.textContent = numbers;
     });
     potency?.addEventListener('click', () => {
-        numbers += '^(';
-        result.textContent = numbers;
+        if (poten == true) {
+            numbers += '^(';
+            result.textContent = numbers;
+            poten = false;
+        }
+        else {
+            return;
+        }
     });
 }
 function resultName() {

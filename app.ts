@@ -25,6 +25,8 @@ let eq = false
 let startz = false
 let final: any
 let numbers: string = '0'
+let temp1
+let poten = false
 
 resultName()
 
@@ -36,17 +38,20 @@ function number(){ // All numbers, 0-9
       numbers = '1'
       startz = true
       eq = false
+      poten = true
       resultName()
     } else {
       numbers += '1'
       eq = false
+      poten = true
       resultName()
     }
     if (numbers[numbers.length-2].endsWith('(') || 
     numbers[numbers.length-3].endsWith('(')){
       numbers += ')'
-      eq = false
       resultName()
+      temp1 = numbers.replace('^(', '**')
+      numbers = temp1.replace(')', '')
     }
   })
 
@@ -56,17 +61,20 @@ function number(){ // All numbers, 0-9
       numbers = '2'
       startz = true
       eq = false
+      poten = true
       resultName()
     } else {
       numbers += '2'
       eq = false
       resultName()
+      poten = true
     }
     if (numbers[numbers.length-2].endsWith('(') || 
     numbers[numbers.length-3].endsWith('(')){
       numbers += ')'
-      eq = false
       resultName()
+      temp1 = numbers.replace('^(', '**')
+      numbers = temp1.replace(')', '')
     }
   })
 
@@ -76,11 +84,20 @@ function number(){ // All numbers, 0-9
       numbers = '3'
       startz = true
       eq = false
+      poten = true
       resultName()
     } else {
       numbers += '3'
       eq = false
       resultName()
+      poten = true
+    }
+    if (numbers[numbers.length-2].endsWith('(') || 
+    numbers[numbers.length-3].endsWith('(')){
+      numbers += ')'
+      resultName()
+      temp1 = numbers.replace('^(', '**')
+      numbers = temp1.replace(')', '')
     }
   })
 
@@ -90,11 +107,20 @@ function number(){ // All numbers, 0-9
       numbers = '4'
       startz = true
       eq = false
+      poten = true
       resultName()
     } else {
       numbers += '4'
       eq = false
       resultName()
+      poten = true
+    }
+    if (numbers[numbers.length-2].endsWith('(') || 
+    numbers[numbers.length-3].endsWith('(')){
+      numbers += ')'
+      resultName()
+      temp1 = numbers.replace('^(', '**')
+      numbers = temp1.replace(')', '')
     }
   })
 
@@ -104,11 +130,20 @@ function number(){ // All numbers, 0-9
       numbers = '5'
       startz = true
       eq = false
+      poten = true
       resultName()
     } else {
       numbers += '5'
       eq = false
       resultName()
+      poten = true
+    }
+    if (numbers[numbers.length-2].endsWith('(') || 
+    numbers[numbers.length-3].endsWith('(')){
+      numbers += ')'
+      resultName()
+      temp1 = numbers.replace('^(', '**')
+      numbers = temp1.replace(')', '')
     }
   })
 
@@ -118,11 +153,20 @@ function number(){ // All numbers, 0-9
       numbers = '6'
       startz = true
       eq = false
+      poten = true
       resultName()
     } else {
       numbers += '6'
       eq = false
       resultName()
+      poten = true
+    }
+    if (numbers[numbers.length-2].endsWith('(') || 
+    numbers[numbers.length-3].endsWith('(')){
+      numbers += ')'
+      resultName()
+      temp1 = numbers.replace('^(', '**')
+      numbers = temp1.replace(')', '')
     }
   })
 
@@ -132,11 +176,20 @@ function number(){ // All numbers, 0-9
       numbers = '7'
       startz = true
       eq = false
+      poten = true
       resultName()
     } else {
       numbers += '7'
       eq = false
       resultName()
+      poten = true
+    }
+    if (numbers[numbers.length-2].endsWith('(') || 
+    numbers[numbers.length-3].endsWith('(')){
+      numbers += ')'
+      resultName()
+      temp1 = numbers.replace('^(', '**')
+      numbers = temp1.replace(')', '')
     }
   })
 
@@ -146,11 +199,20 @@ function number(){ // All numbers, 0-9
       numbers = '8'
       startz = true
       eq = false
+      poten = true
       resultName()
     } else {
       numbers += '8'
       eq = false
       resultName()
+      poten = true
+    }
+    if (numbers[numbers.length-2].endsWith('(') || 
+    numbers[numbers.length-3].endsWith('(')){
+      numbers += ')'
+      resultName()
+      temp1 = numbers.replace('^(', '**')
+      numbers = temp1.replace(')', '')
     }
   })
 
@@ -160,11 +222,20 @@ function number(){ // All numbers, 0-9
       numbers = '9'
       startz = true
       eq = false
+      poten = true
       resultName()
     } else {
       numbers += '9'
       eq = false
       resultName()
+      poten = true
+    }
+    if (numbers[numbers.length-2].endsWith('(') || 
+    numbers[numbers.length-3].endsWith('(')){
+      numbers += ')'
+      resultName()
+      temp1 = numbers.replace('^(', '**')
+      numbers = temp1.replace(')', '')
     }
   })
 
@@ -174,11 +245,20 @@ function number(){ // All numbers, 0-9
       numbers = '0'
       startz = true
       eq = false
+      poten = true
       resultName()
     } else {
       numbers += '0'
       eq = false
+      poten = true
       resultName()
+    }
+    if (numbers[numbers.length-2].endsWith('(') || 
+    numbers[numbers.length-3].endsWith('(')){
+      numbers += ')'
+      resultName()
+      temp1 = numbers.replace('^(', '**')
+      numbers = temp1.replace(')', '')
     }
   })
 }
@@ -193,7 +273,14 @@ function arithmetics(){ // Minus, plus, divide, multiply
     numbers.endsWith('*') || 
     numbers.endsWith('.')) return
     numbers += '+'
+
+    if(numbers.includes('**') && numbers.includes('+')){
+      temp1 = numbers.replace('**', '^(')
+      numbers = temp1.replace('+', ')')
+      numbers += '+'
+    }
     resultName()
+    poten = false
   })
 
   minus?.addEventListener('click', () => {
@@ -204,7 +291,14 @@ function arithmetics(){ // Minus, plus, divide, multiply
     numbers.endsWith('*') || 
     numbers.endsWith('.')) return
     numbers += '-'
+    
+    if(numbers.includes('**') && numbers.includes('-')){
+      temp1 = numbers.replace('**', '^(')
+      numbers = temp1.replace('-', ')')
+      numbers += '-'
+    }
     resultName()
+    poten = false
   })
 
   multiply?.addEventListener('click', () => {
@@ -215,7 +309,14 @@ function arithmetics(){ // Minus, plus, divide, multiply
     numbers.endsWith('*') || 
     numbers.endsWith('.')) return
     numbers += '*'
+    
+    if(numbers.includes('**') && numbers.includes('*')){
+      temp1 = numbers.replace('**', '^(')
+      numbers = temp1.replace('*', ')')
+      numbers += '*'
+    }
     resultName()
+    poten = false
   })
 
   divide?.addEventListener('click', () => {
@@ -226,7 +327,14 @@ function arithmetics(){ // Minus, plus, divide, multiply
     numbers.endsWith('*') || 
     numbers.endsWith('.')) return
     numbers += '/'
+    
+    if(numbers.includes('**') && numbers.includes('/')){
+      temp1 = numbers.replace('**', '^(')
+      numbers = temp1.replace('/', ')')
+      numbers += '/'
+    }
     resultName()
+    poten = false
   })
 }
 
@@ -241,10 +349,21 @@ function otherButtons(){ // Dot, equal, CE
     numbers.endsWith('.')) return
     numbers += '.'
     resultName()
+    poten = false
   })
 
   equal?.addEventListener('click', () => {
     if (eq == false) {
+      if(numbers.includes('^(') && numbers.includes(')')){
+        temp1 = numbers.replace('^(', '**')
+        numbers = temp1.replace(')', '')
+
+        final = Function('return ' + numbers)()
+        numbers = ''
+        eq = true
+        result.textContent = final
+        return
+      }
       if (numbers.startsWith('/') || 
       numbers.startsWith('+') || 
       numbers.startsWith('-') || 
@@ -257,6 +376,7 @@ function otherButtons(){ // Dot, equal, CE
       numbers.endsWith('.')){
         result.textContent = 'Error'
         numbers = ''
+        return
       }
 
       final = Function('return ' + numbers)()
@@ -275,8 +395,13 @@ function otherButtons(){ // Dot, equal, CE
   })
 
   potency?.addEventListener('click', () => {
+    if (poten == true){
     numbers += '^('
     result.textContent = numbers
+    poten = false
+  } else {
+    return
+  }
   })
 }
 
