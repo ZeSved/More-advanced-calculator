@@ -18,6 +18,8 @@ const result = document.querySelector('.result')!
 const dot = document.querySelector('.dot')
 const ce = document.querySelector('.CE')
 const negate = document.querySelector('.negate')
+const potency = document.querySelector('.potency')
+const numbersss = document.querySelector('.numbersss')
 
 let eq = false
 let startz = false
@@ -40,6 +42,12 @@ function number(){ // All numbers, 0-9
       eq = false
       resultName()
     }
+    if (numbers[numbers.length-2].endsWith('(') || 
+    numbers[numbers.length-3].endsWith('(')){
+      numbers += ')'
+      eq = false
+      resultName()
+    }
   })
 
   two?.addEventListener('click', () => {
@@ -51,6 +59,12 @@ function number(){ // All numbers, 0-9
       resultName()
     } else {
       numbers += '2'
+      eq = false
+      resultName()
+    }
+    if (numbers[numbers.length-2].endsWith('(') || 
+    numbers[numbers.length-3].endsWith('(')){
+      numbers += ')'
       eq = false
       resultName()
     }
@@ -257,6 +271,11 @@ function otherButtons(){ // Dot, equal, CE
   ce?.addEventListener('click', () => {
     startz = false
     numbers = '0'
+    result.textContent = numbers
+  })
+
+  potency?.addEventListener('click', () => {
+    numbers += '^('
     result.textContent = numbers
   })
 }

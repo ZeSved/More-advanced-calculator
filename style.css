@@ -6,9 +6,9 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-size: 30px;
   text-align: center;
   vertical-align: baseline;
-  font-size: 30px;
   font-family: 'Noto Sans Mono', monospace;
   user-select: none;
 }
@@ -60,4 +60,8 @@ body{
   padding-right: 8px;
   padding-top: 8px;
   margin-bottom: 20px;
+}
+
+.supb{
+  font-size: 15px;
 }
