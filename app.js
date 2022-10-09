@@ -30,7 +30,7 @@ resultName();
 number();
 function number() {
     one?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers == '0' && startz == false) {
             numbers = '1';
@@ -54,7 +54,7 @@ function number() {
         }
     });
     two?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers == '0' && startz == false) {
             numbers = '2';
@@ -78,7 +78,7 @@ function number() {
         }
     });
     three?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers == '0' && startz == false) {
             numbers = '3';
@@ -102,7 +102,7 @@ function number() {
         }
     });
     four?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers == '0' && startz == false) {
             numbers = '4';
@@ -126,7 +126,7 @@ function number() {
         }
     });
     five?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers == '0' && startz == false) {
             numbers = '5';
@@ -150,7 +150,7 @@ function number() {
         }
     });
     six?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers == '0' && startz == false) {
             numbers = '6';
@@ -174,7 +174,7 @@ function number() {
         }
     });
     seven?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers == '0' && startz == false) {
             numbers = '7';
@@ -198,7 +198,7 @@ function number() {
         }
     });
     eight?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers == '0' && startz == false) {
             numbers = '8';
@@ -222,7 +222,7 @@ function number() {
         }
     });
     nine?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers == '0' && startz == false) {
             numbers = '9';
@@ -246,7 +246,7 @@ function number() {
         }
     });
     zero?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers == '0' && startz == false) {
             numbers = '0';
@@ -273,7 +273,7 @@ function number() {
 arithmetics();
 function arithmetics() {
     plus?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers.endsWith('/') ||
             numbers.endsWith('+') ||
@@ -291,7 +291,7 @@ function arithmetics() {
         poten = false;
     });
     minus?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers.endsWith('/') ||
             numbers.endsWith('+') ||
@@ -309,7 +309,7 @@ function arithmetics() {
         poten = false;
     });
     multiply?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers.endsWith('/') ||
             numbers.endsWith('+') ||
@@ -327,7 +327,7 @@ function arithmetics() {
         poten = false;
     });
     divide?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers.endsWith('/') ||
             numbers.endsWith('+') ||
@@ -348,7 +348,7 @@ function arithmetics() {
 otherButtons();
 function otherButtons() {
     dot?.addEventListener('click', () => {
-        if (numbers.length > 15)
+        if (numbers.length > 24)
             return;
         if (numbers.endsWith('/') ||
             numbers.endsWith('+') ||
@@ -376,6 +376,9 @@ function otherButtons() {
                 numbers.startsWith('-') ||
                 numbers.startsWith('*') ||
                 numbers.startsWith('.') ||
+                numbers.startsWith('^') ||
+                numbers.endsWith('(') ||
+                numbers.endsWith(')') ||
                 numbers.endsWith('/') ||
                 numbers.endsWith('+') ||
                 numbers.endsWith('-') ||

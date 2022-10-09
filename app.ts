@@ -33,7 +33,7 @@ resultName()
 number()
 function number(){ // All numbers, 0-9
   one?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers == '0' && startz == false){
       numbers = '1'
       startz = true
@@ -56,7 +56,7 @@ function number(){ // All numbers, 0-9
   })
 
   two?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers == '0' && startz == false){
       numbers = '2'
       startz = true
@@ -79,7 +79,7 @@ function number(){ // All numbers, 0-9
   })
 
   three?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers == '0' && startz == false){
       numbers = '3'
       startz = true
@@ -102,7 +102,7 @@ function number(){ // All numbers, 0-9
   })
 
   four?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers == '0' && startz == false){
       numbers = '4'
       startz = true
@@ -125,7 +125,7 @@ function number(){ // All numbers, 0-9
   })
 
   five?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers == '0' && startz == false){
       numbers = '5'
       startz = true
@@ -148,7 +148,7 @@ function number(){ // All numbers, 0-9
   })
 
   six?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers == '0' && startz == false){
       numbers = '6'
       startz = true
@@ -171,7 +171,7 @@ function number(){ // All numbers, 0-9
   })
 
   seven?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers == '0' && startz == false){
       numbers = '7'
       startz = true
@@ -194,7 +194,7 @@ function number(){ // All numbers, 0-9
   })
 
   eight?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers == '0' && startz == false){
       numbers = '8'
       startz = true
@@ -217,7 +217,7 @@ function number(){ // All numbers, 0-9
   })
 
   nine?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers == '0' && startz == false){
       numbers = '9'
       startz = true
@@ -240,7 +240,7 @@ function number(){ // All numbers, 0-9
   })
 
   zero?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers == '0' && startz == false){
       numbers = '0'
       startz = true
@@ -266,7 +266,7 @@ function number(){ // All numbers, 0-9
 arithmetics()
 function arithmetics(){ // Minus, plus, divide, multiply
   plus?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers.endsWith('/') || 
     numbers.endsWith('+') || 
     numbers.endsWith('-') || 
@@ -284,7 +284,7 @@ function arithmetics(){ // Minus, plus, divide, multiply
   })
 
   minus?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers.endsWith('/') || 
     numbers.endsWith('+') || 
     numbers.endsWith('-') || 
@@ -302,7 +302,7 @@ function arithmetics(){ // Minus, plus, divide, multiply
   })
 
   multiply?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers.endsWith('/') || 
     numbers.endsWith('+') || 
     numbers.endsWith('-') || 
@@ -320,7 +320,7 @@ function arithmetics(){ // Minus, plus, divide, multiply
   })
 
   divide?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers.endsWith('/') || 
     numbers.endsWith('+') || 
     numbers.endsWith('-') || 
@@ -341,7 +341,7 @@ function arithmetics(){ // Minus, plus, divide, multiply
 otherButtons()
 function otherButtons(){ // Dot, equal, CE
   dot?.addEventListener('click', () => {
-    if (numbers.length > 15) return
+    if (numbers.length > 24) return
     if (numbers.endsWith('/') || 
     numbers.endsWith('+') || 
     numbers.endsWith('-') || 
@@ -369,6 +369,9 @@ function otherButtons(){ // Dot, equal, CE
       numbers.startsWith('-') || 
       numbers.startsWith('*') || 
       numbers.startsWith('.') ||
+      numbers.startsWith('^') ||
+      numbers.endsWith('(') ||
+      numbers.endsWith(')') ||
       numbers.endsWith('/') || 
       numbers.endsWith('+') || 
       numbers.endsWith('-') || 

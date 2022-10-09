@@ -14,7 +14,7 @@
 }
 
 button{
-  width: 60px;
+  width: 100px;
   height: 60px;
   margin: 7px;
   border: 2px;
@@ -35,10 +35,10 @@ body{
 
 .main{
   background-color: #030129;
-  width: 370px;
+  width: 600px;
   margin: auto;
   border-radius: 30px;
-  height: 480px;
+  height: 500px;
   padding-top: 20px;
   position: absolute;
   top: 50%;
@@ -51,7 +51,7 @@ body{
 .result{
   color: #ffffff;
   height: 60px;
-  width: 310px;
+  width: 470px;
   margin: auto;
   text-align: right;
   background-color: #100e2b;
