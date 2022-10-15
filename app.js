@@ -26,324 +26,219 @@ let final;
 let numbers = '0';
 let temp1;
 let poten = false;
+let numberIndicator;
+let arithmeticIndicator;
 resultName();
-number();
-function number() {
+numberInitializer();
+function numberInitializer() {
     one?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers == '0' && startz == false) {
-            numbers = '1';
-            startz = true;
-            eq = false;
-            poten = true;
-            resultName();
-        }
-        else {
-            numbers += '1';
-            eq = false;
-            poten = true;
-            resultName();
-        }
-        if (numbers[numbers.length - 2].endsWith('(') ||
-            numbers[numbers.length - 3].endsWith('(')) {
-            numbers += ')';
-            resultName();
-            temp1 = numbers.replace('^(', '**');
-            numbers = temp1.replace(')', '');
-        }
+        numberIndicator = '1';
+        numberOperation();
     });
     two?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers == '0' && startz == false) {
-            numbers = '2';
-            startz = true;
-            eq = false;
-            poten = true;
-            resultName();
-        }
-        else {
-            numbers += '2';
-            eq = false;
-            resultName();
-            poten = true;
-        }
-        if (numbers[numbers.length - 2].endsWith('(') ||
-            numbers[numbers.length - 3].endsWith('(')) {
-            numbers += ')';
-            resultName();
-            temp1 = numbers.replace('^(', '**');
-            numbers = temp1.replace(')', '');
-        }
+        numberIndicator = '2';
+        numberOperation();
     });
     three?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers == '0' && startz == false) {
-            numbers = '3';
-            startz = true;
-            eq = false;
-            poten = true;
-            resultName();
-        }
-        else {
-            numbers += '3';
-            eq = false;
-            resultName();
-            poten = true;
-        }
-        if (numbers[numbers.length - 2].endsWith('(') ||
-            numbers[numbers.length - 3].endsWith('(')) {
-            numbers += ')';
-            resultName();
-            temp1 = numbers.replace('^(', '**');
-            numbers = temp1.replace(')', '');
-        }
+        numberIndicator = '3';
+        numberOperation();
     });
     four?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers == '0' && startz == false) {
-            numbers = '4';
-            startz = true;
-            eq = false;
-            poten = true;
-            resultName();
-        }
-        else {
-            numbers += '4';
-            eq = false;
-            resultName();
-            poten = true;
-        }
-        if (numbers[numbers.length - 2].endsWith('(') ||
-            numbers[numbers.length - 3].endsWith('(')) {
-            numbers += ')';
-            resultName();
-            temp1 = numbers.replace('^(', '**');
-            numbers = temp1.replace(')', '');
-        }
+        numberIndicator = '4';
+        numberOperation();
     });
     five?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers == '0' && startz == false) {
-            numbers = '5';
-            startz = true;
-            eq = false;
-            poten = true;
-            resultName();
-        }
-        else {
-            numbers += '5';
-            eq = false;
-            resultName();
-            poten = true;
-        }
-        if (numbers[numbers.length - 2].endsWith('(') ||
-            numbers[numbers.length - 3].endsWith('(')) {
-            numbers += ')';
-            resultName();
-            temp1 = numbers.replace('^(', '**');
-            numbers = temp1.replace(')', '');
-        }
+        numberIndicator = '5';
+        numberOperation();
     });
     six?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers == '0' && startz == false) {
-            numbers = '6';
-            startz = true;
-            eq = false;
-            poten = true;
-            resultName();
-        }
-        else {
-            numbers += '6';
-            eq = false;
-            resultName();
-            poten = true;
-        }
-        if (numbers[numbers.length - 2].endsWith('(') ||
-            numbers[numbers.length - 3].endsWith('(')) {
-            numbers += ')';
-            resultName();
-            temp1 = numbers.replace('^(', '**');
-            numbers = temp1.replace(')', '');
-        }
+        numberIndicator = '6';
+        numberOperation();
     });
     seven?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers == '0' && startz == false) {
-            numbers = '7';
-            startz = true;
-            eq = false;
-            poten = true;
-            resultName();
-        }
-        else {
-            numbers += '7';
-            eq = false;
-            resultName();
-            poten = true;
-        }
-        if (numbers[numbers.length - 2].endsWith('(') ||
-            numbers[numbers.length - 3].endsWith('(')) {
-            numbers += ')';
-            resultName();
-            temp1 = numbers.replace('^(', '**');
-            numbers = temp1.replace(')', '');
-        }
+        numberIndicator = '7';
+        numberOperation();
     });
     eight?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers == '0' && startz == false) {
-            numbers = '8';
-            startz = true;
-            eq = false;
-            poten = true;
-            resultName();
-        }
-        else {
-            numbers += '8';
-            eq = false;
-            resultName();
-            poten = true;
-        }
-        if (numbers[numbers.length - 2].endsWith('(') ||
-            numbers[numbers.length - 3].endsWith('(')) {
-            numbers += ')';
-            resultName();
-            temp1 = numbers.replace('^(', '**');
-            numbers = temp1.replace(')', '');
-        }
+        numberIndicator = '8';
+        numberOperation();
     });
     nine?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers == '0' && startz == false) {
-            numbers = '9';
-            startz = true;
-            eq = false;
-            poten = true;
-            resultName();
-        }
-        else {
-            numbers += '9';
-            eq = false;
-            resultName();
-            poten = true;
-        }
-        if (numbers[numbers.length - 2].endsWith('(') ||
-            numbers[numbers.length - 3].endsWith('(')) {
-            numbers += ')';
-            resultName();
-            temp1 = numbers.replace('^(', '**');
-            numbers = temp1.replace(')', '');
-        }
+        numberIndicator = '9';
+        numberOperation();
     });
     zero?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers == '0' && startz == false) {
-            numbers = '0';
-            startz = true;
-            eq = false;
-            poten = true;
-            resultName();
-        }
-        else {
-            numbers += '0';
-            eq = false;
-            poten = true;
-            resultName();
-        }
-        if (numbers[numbers.length - 2].endsWith('(') ||
-            numbers[numbers.length - 3].endsWith('(')) {
-            numbers += ')';
-            resultName();
-            temp1 = numbers.replace('^(', '**');
-            numbers = temp1.replace(')', '');
-        }
+        numberIndicator = '0';
+        numberOperation();
     });
 }
-arithmetics();
-function arithmetics() {
-    plus?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers.endsWith('/') ||
-            numbers.endsWith('+') ||
-            numbers.endsWith('-') ||
-            numbers.endsWith('*') ||
-            numbers.endsWith('.'))
-            return;
-        numbers += '+';
-        if (numbers.includes('**') && numbers.includes('+')) {
-            temp1 = numbers.replace('**', '^(');
-            numbers = temp1.replace('+', ')');
-            numbers += '+';
+function numberOperation() {
+    if (numbers.length > 24)
+        return;
+    if (numbers == '0' && startz == false) {
+        switch (numberIndicator) {
+            case '0':
+                numbers = '0';
+                break;
+            case '1':
+                numbers = '1';
+                break;
+            case '2':
+                numbers = '2';
+                break;
+            case '3':
+                numbers = '3';
+                break;
+            case '4':
+                numbers = '4';
+                break;
+            case '5':
+                numbers = '5';
+                break;
+            case '6':
+                numbers = '6';
+                break;
+            case '7':
+                numbers = '7';
+                break;
+            case '8':
+                numbers = '8';
+                break;
+            case '9':
+                numbers = '9';
+                break;
+            default:
+                break;
         }
+        startz = true;
+        eq = false;
+        poten = true;
         resultName();
+    }
+    else if (numbers.slice(-3).startsWith('**')) {
+        return;
+    }
+    else {
+        switch (numberIndicator) {
+            case '0':
+                numbers += '0';
+                break;
+            case '1':
+                numbers += '1';
+                break;
+            case '2':
+                numbers += '2';
+                break;
+            case '3':
+                numbers += '3';
+                break;
+            case '4':
+                numbers += '4';
+                break;
+            case '5':
+                numbers += '5';
+                break;
+            case '6':
+                numbers += '6';
+                break;
+            case '7':
+                numbers += '7';
+                break;
+            case '8':
+                numbers += '8';
+                break;
+            case '9':
+                numbers += '9';
+                break;
+            default:
+                break;
+        }
+        eq = false;
+        poten = true;
+        resultName();
+    }
+    if (numbers[numbers.length - 2].endsWith('(') ||
+        numbers[numbers.length - 3].endsWith('(')) {
+        numbers += ')';
+        resultName();
+        temp1 = numbers.replace('^(', '**');
+        numbers = temp1.replace(')', '');
         poten = false;
+    }
+}
+arithmeticsInitializer();
+function arithmeticsInitializer() {
+    plus?.addEventListener('click', () => {
+        arithmeticIndicator = '+';
+        arithmeticsOperation();
     });
     minus?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers.endsWith('/') ||
-            numbers.endsWith('+') ||
-            numbers.endsWith('-') ||
-            numbers.endsWith('*') ||
-            numbers.endsWith('.'))
-            return;
-        numbers += '-';
-        if (numbers.includes('**') && numbers.includes('-')) {
-            temp1 = numbers.replace('**', '^(');
-            numbers = temp1.replace('-', ')');
-            numbers += '-';
-        }
-        resultName();
-        poten = false;
+        arithmeticIndicator = '-';
+        arithmeticsOperation();
     });
     multiply?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers.endsWith('/') ||
-            numbers.endsWith('+') ||
-            numbers.endsWith('-') ||
-            numbers.endsWith('*') ||
-            numbers.endsWith('.'))
-            return;
-        numbers += '*';
-        if (numbers.includes('**') && numbers.includes('*')) {
-            temp1 = numbers.replace('**', '^(');
-            numbers = temp1.replace('*', ')');
-            numbers += '*';
-        }
-        resultName();
-        poten = false;
+        arithmeticIndicator = '*';
+        arithmeticsOperation();
     });
     divide?.addEventListener('click', () => {
-        if (numbers.length > 24)
-            return;
-        if (numbers.endsWith('/') ||
-            numbers.endsWith('+') ||
-            numbers.endsWith('-') ||
-            numbers.endsWith('*') ||
-            numbers.endsWith('.'))
-            return;
-        numbers += '/';
-        if (numbers.includes('**') && numbers.includes('/')) {
-            temp1 = numbers.replace('**', '^(');
-            numbers = temp1.replace('/', ')');
-            numbers += '/';
-        }
-        resultName();
-        poten = false;
+        arithmeticIndicator = '/';
+        arithmeticsOperation();
     });
+    dot?.addEventListener('click', () => {
+        arithmeticIndicator = '.';
+        arithmeticsOperation();
+    });
+}
+function arithmeticsOperation() {
+    if (numbers.length > 24)
+        return;
+    if (numbers.endsWith('/') ||
+        numbers.endsWith('+') ||
+        numbers.endsWith('-') ||
+        numbers.endsWith('*') ||
+        numbers.endsWith('.'))
+        return;
+    switch (arithmeticIndicator) {
+        case '+':
+            numbers += '+';
+            break;
+        case '-':
+            numbers += '-';
+            break;
+        case '*':
+            numbers += '*';
+            break;
+        case '/':
+            numbers += '/';
+            break;
+        case '.':
+            numbers += '.';
+            break;
+        default:
+            break;
+    }
+    if (numbers.includes('**') && arithmeticIndicator == '+') {
+        temp1 = numbers.replace('**', '^(');
+        numbers = temp1.replace('+', ')');
+        numbers += '+';
+    }
+    else if (numbers.includes('**') && arithmeticIndicator == '-') {
+        temp1 = numbers.replace('**', '^(');
+        numbers = temp1.replace('-', ')');
+        numbers += '-';
+    }
+    else if (numbers.includes('**') && arithmeticIndicator == '*') {
+        temp1 = numbers.replace('**', '^(');
+        numbers = temp1.replace('*', ')');
+        numbers += '*';
+    }
+    else if (numbers.includes('**') && arithmeticIndicator == '/') {
+        temp1 = numbers.replace('**', '^(');
+        numbers = temp1.replace('/', ')');
+        numbers += '/';
+    }
+    resultName();
+    poten = false;
 }
 otherButtons();
 function otherButtons() {
@@ -409,6 +304,7 @@ function otherButtons() {
             poten = false;
         }
         else {
+            poten = false;
             return;
         }
     });

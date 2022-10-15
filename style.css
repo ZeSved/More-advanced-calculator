@@ -7,7 +7,7 @@
   margin: 0;
   padding: 0;
   font-size: 30px;
-  text-align: center;
+  /* text-align: center; */
   vertical-align: baseline;
   font-family: 'Noto Sans Mono', monospace;
   user-select: none;
@@ -21,10 +21,11 @@ body{
 }
 
 .main{
+  text-align: center;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  background: rgb(89,0,255);
-  background: linear-gradient(70deg, rgba(89,0,255,1) 0%, rgba(76,9,121,1) 51%, rgba(201,0,255,1) 100%); 
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.3);
   width: 600px;
   margin: auto;
   border-radius: 30px;
@@ -40,15 +41,17 @@ body{
 
 p{
   width: 350px;
+  text-align: center;
 }
 
 .result{
+  text-align: center;
   color: #ffffff;
   height: 60px;
   width: 470px;
   margin: auto;
   text-align: right;
-  background-color: #100e2b;
+  background-color: rgba(16, 14, 43, 0.9);
   box-shadow: 0px 0px 1px 1px #100e2b;
   border-radius: 15px;
   border-top: 20px;
@@ -58,11 +61,12 @@ p{
 }
 
 button{
+  text-align: center;
   width: 100px;
   height: 60px;
   margin: 7px;
   border: 2px;
-  background-color: #171747;
+  background-color: rgb(23, 23, 71, 0.8);
   color: #ffffff;
   border-color: #066e7c;
   border-style: solid;
@@ -70,5 +74,25 @@ button{
 }
 
 .supb{
+  text-align: center;
   font-size: 15px;
+}
+
+ul{
+  list-style: none;
+  text-align: left;
+  padding-top: 920px;
+  padding-left: 15px;
+}
+
+h6{
+  font-size: 17px;
+}
+
+li{
+  font-size: 14px;
+}
+
+.supbb{
+  font-size: 11px;
 }
