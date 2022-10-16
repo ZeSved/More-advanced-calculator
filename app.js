@@ -20,6 +20,7 @@ const ce = document.querySelector('.CE');
 const negate = document.querySelector('.negate');
 const potency = document.querySelector('.potency');
 const numbersss = document.querySelector('.numbersss');
+const c = document.querySelector('.C');
 let eq = false;
 let startz = false;
 let final;
@@ -295,17 +296,43 @@ function otherButtons() {
     ce?.addEventListener('click', () => {
         startz = false;
         numbers = '0';
-        result.textContent = numbers;
+        resultName();
     });
     potency?.addEventListener('click', () => {
         if (poten == true) {
             numbers += '^(';
-            result.textContent = numbers;
+            resultName();
             poten = false;
         }
         else {
             poten = false;
             return;
+        }
+    });
+    c?.addEventListener('click', () => {
+        if (startz == false) {
+            return;
+        }
+        else {
+            numbers = numbers.slice(0, -1);
+            resultName();
+        }
+        if (result.textContent == '') {
+            startz = false;
+            numbers = '0';
+            resultName();
+        }
+        console.log(result);
+        console.log(numbers);
+        if (result.textContent?.includes('**')) {
+            result.textContent = result.textContent.replace('**', '^(');
+        }
+        console.log(result);
+        console.log(numbers);
+        if (numbers.endsWith(')') || numbers.endsWith('**')) {
+            numbers = numbers.slice(0, -2);
+            poten = true;
+            resultName();
         }
     });
 }
