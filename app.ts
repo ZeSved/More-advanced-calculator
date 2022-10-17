@@ -338,19 +338,23 @@ function otherButtons(){ // Dot, equal, CE
       numbers = '0'
       resultName()
     }
-    console.log(result)
-    console.log(numbers)
     
-    if (result.textContent?.includes('**')){
-      result.textContent = result.textContent.replace('**', '^(')
-    }
-    console.log(result)
-    console.log(numbers)
-
-    if (numbers.endsWith(')') || numbers.endsWith('**')){
+    if (numbers.endsWith(')')){
       numbers = numbers.slice(0, -2)
       poten = true
       resultName()
+    } else if (numbers.endsWith('(')){
+      numbers = numbers.slice(0, -2)
+      poten = true
+      resultName()
+    }
+
+    if (numbers.endsWith('*') || numbers.endsWith('^')){
+      numbers = numbers.slice(0, -1)
+    }
+
+    if (result.textContent?.includes('**')){
+      result.textContent = result.textContent.replace('**', '^(')
     }
   })
 }
