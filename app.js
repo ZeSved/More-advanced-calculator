@@ -77,40 +77,7 @@ function numberOperation() {
     if (numbers.length > 24)
         return;
     if (numbers == '0' && startz == false) {
-        switch (numberIndicator) {
-            case '0':
-                numbers = '0';
-                break;
-            case '1':
-                numbers = '1';
-                break;
-            case '2':
-                numbers = '2';
-                break;
-            case '3':
-                numbers = '3';
-                break;
-            case '4':
-                numbers = '4';
-                break;
-            case '5':
-                numbers = '5';
-                break;
-            case '6':
-                numbers = '6';
-                break;
-            case '7':
-                numbers = '7';
-                break;
-            case '8':
-                numbers = '8';
-                break;
-            case '9':
-                numbers = '9';
-                break;
-            default:
-                break;
-        }
+        numbers = numberIndicator;
         startz = true;
         eq = false;
         poten = true;
@@ -120,40 +87,7 @@ function numberOperation() {
         return;
     }
     else {
-        switch (numberIndicator) {
-            case '0':
-                numbers += '0';
-                break;
-            case '1':
-                numbers += '1';
-                break;
-            case '2':
-                numbers += '2';
-                break;
-            case '3':
-                numbers += '3';
-                break;
-            case '4':
-                numbers += '4';
-                break;
-            case '5':
-                numbers += '5';
-                break;
-            case '6':
-                numbers += '6';
-                break;
-            case '7':
-                numbers += '7';
-                break;
-            case '8':
-                numbers += '8';
-                break;
-            case '9':
-                numbers += '9';
-                break;
-            default:
-                break;
-        }
+        numbers += numberIndicator;
         eq = false;
         poten = true;
         resultName();
@@ -199,25 +133,7 @@ function arithmeticsOperation() {
         numbers.endsWith('*') ||
         numbers.endsWith('.'))
         return;
-    switch (arithmeticIndicator) {
-        case '+':
-            numbers += '+';
-            break;
-        case '-':
-            numbers += '-';
-            break;
-        case '*':
-            numbers += '*';
-            break;
-        case '/':
-            numbers += '/';
-            break;
-        case '.':
-            numbers += '.';
-            break;
-        default:
-            break;
-    }
+    numbers += arithmeticIndicator;
     if (numbers.includes('**') && arithmeticIndicator == '+') {
         temp1 = numbers.replace('**', '^(');
         numbers = temp1.replace('+', ')');
@@ -338,6 +254,8 @@ function otherButtons() {
         if (result.textContent?.includes('**')) {
             result.textContent = result.textContent.replace('**', '^(');
         }
+    });
+    negate?.addEventListener('click', () => {
     });
 }
 function resultName() {
