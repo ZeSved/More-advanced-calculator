@@ -73,6 +73,10 @@ button{
   border-radius: 500px;
 }
 
+button:hover{
+  border-color: #02c9e4;
+}
+
 .supb{
   text-align: center;
   font-size: 15px;
