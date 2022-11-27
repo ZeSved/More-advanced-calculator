@@ -29,6 +29,7 @@ let temp1;
 let poten = false;
 let numberIndicator;
 let arithmeticIndicator;
+let negative = false;
 resultName();
 numberInitializer();
 function numberInitializer() {
@@ -173,6 +174,7 @@ function otherButtons() {
         poten = false;
     });
     equal?.addEventListener('click', () => {
+        negative = false;
         if (eq == false) {
             if (numbers.includes('^(') && numbers.includes(')')) {
                 temp1 = numbers.replace('^(', '**');
@@ -190,7 +192,6 @@ function otherButtons() {
                 numbers.startsWith('.') ||
                 numbers.startsWith('^') ||
                 numbers.endsWith('(') ||
-                numbers.endsWith(')') ||
                 numbers.endsWith('/') ||
                 numbers.endsWith('+') ||
                 numbers.endsWith('-') ||
@@ -210,6 +211,7 @@ function otherButtons() {
         }
     });
     ce?.addEventListener('click', () => {
+        negative = false;
         startz = false;
         numbers = '0';
         resultName();
@@ -256,6 +258,33 @@ function otherButtons() {
         }
     });
     negate?.addEventListener('click', () => {
+        if (numbers.endsWith('.'))
+            return;
+        if (negative == true) {
+            numbers = numbers.slice(0, -4);
+            numbers += numberIndicator;
+            resultName();
+            negative = false;
+            console.log(numbers);
+            return;
+        }
+        if (numbers.endsWith('1') ||
+            numbers.endsWith('2') ||
+            numbers.endsWith('3') ||
+            numbers.endsWith('4') ||
+            numbers.endsWith('5') ||
+            numbers.endsWith('6') ||
+            numbers.endsWith('7') ||
+            numbers.endsWith('8') ||
+            numbers.endsWith('9')) {
+            numbers = numbers.slice(0, -1);
+            numbers += `(-${numberIndicator})`;
+            resultName();
+            negative = true;
+            console.log(numbers);
+        }
+        else
+            return;
     });
 }
 function resultName() {

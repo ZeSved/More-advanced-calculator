@@ -30,6 +30,7 @@ let temp1
 let poten = false
 let numberIndicator:string
 let arithmeticIndicator:string
+let negative:boolean = false
 
 resultName()
 
@@ -103,15 +104,15 @@ function numberOperation(){
     poten = true
     resultName()
   }
+
   if (numbers[numbers.length-2].endsWith('(') || 
-      numbers[numbers.length-3].endsWith('(')){
+    numbers[numbers.length-3].endsWith('(')){
     numbers += ')'
     resultName()
     temp1 = numbers.replace('^(', '**')
     numbers = temp1.replace(')', '')
     poten = false
   }
-
 }
 
 arithmeticsInitializer()
@@ -188,6 +189,7 @@ function otherButtons(){ // Dot, equal, CE
   })
 
   equal?.addEventListener('click', () => {
+    negative = false
     if (eq == false) {
       if(numbers.includes('^(') && numbers.includes(')')){
         temp1 = numbers.replace('^(', '**')
@@ -199,6 +201,7 @@ function otherButtons(){ // Dot, equal, CE
         result.textContent = final
         return
       }
+      
       if (numbers.startsWith('/') || 
       numbers.startsWith('+') || 
       numbers.startsWith('-') || 
@@ -206,7 +209,6 @@ function otherButtons(){ // Dot, equal, CE
       numbers.startsWith('.') ||
       numbers.startsWith('^') ||
       numbers.endsWith('(') ||
-      numbers.endsWith(')') ||
       numbers.endsWith('/') || 
       numbers.endsWith('+') || 
       numbers.endsWith('-') || 
@@ -227,6 +229,7 @@ function otherButtons(){ // Dot, equal, CE
   })
   
   ce?.addEventListener('click', () => {
+    negative = false
     startz = false
     numbers = '0'
     resultName()
@@ -277,10 +280,35 @@ function otherButtons(){ // Dot, equal, CE
   })
 
   negate?.addEventListener('click', () => {
-    
+    if (numbers.endsWith('.')) return
+
+    if (negative == true){
+      numbers = numbers.slice(0, -4)
+      numbers += numberIndicator
+      resultName()
+      negative = false
+      console.log(numbers)
+      return
+    }
+
+    if (numbers.endsWith('1')||
+    numbers.endsWith('2')||
+    numbers.endsWith('3')||
+    numbers.endsWith('4')||
+    numbers.endsWith('5')||
+    numbers.endsWith('6')||
+    numbers.endsWith('7')||
+    numbers.endsWith('8')||
+    numbers.endsWith('9')){
+      numbers = numbers.slice(0, -1)
+      numbers += `(-${numberIndicator})`
+      resultName()
+      negative = true
+      console.log(numbers)
+    } else return
+
   })
 }
-
 
 function resultName() {
   result.textContent = numbers
