@@ -30,6 +30,8 @@ let poten = false;
 let numberIndicator;
 let arithmeticIndicator;
 let negative = false;
+const arithmeticArr = ['+', '-', '*', '/', '(', '.', '^'];
+const numberArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 resultName();
 numberInitializer();
 function numberInitializer() {
@@ -93,8 +95,8 @@ function numberOperation() {
         poten = true;
         resultName();
     }
-    if (numbers[numbers.length - 2].endsWith('(') ||
-        numbers[numbers.length - 3].endsWith('(')) {
+    if (numbers[numbers.length - 2].endsWith('(')
+        || numbers[numbers.length - 3].endsWith('(')) {
         numbers += ')';
         resultName();
         temp1 = numbers.replace('^(', '**');
@@ -120,20 +122,15 @@ function arithmeticsInitializer() {
         arithmeticIndicator = '/';
         arithmeticsOperation();
     });
-    dot?.addEventListener('click', () => {
-        arithmeticIndicator = '.';
-        arithmeticsOperation();
-    });
 }
 function arithmeticsOperation() {
     if (numbers.length > 24)
         return;
-    if (numbers.endsWith('/') ||
-        numbers.endsWith('+') ||
-        numbers.endsWith('-') ||
-        numbers.endsWith('*') ||
-        numbers.endsWith('.'))
-        return;
+    const tempArr = ['/', '+', '-', '*'];
+    for (let i = 0; i < tempArr.length; i++) {
+        if (numbers.endsWith(tempArr[i]))
+            return;
+    }
     numbers += arithmeticIndicator;
     if (numbers.includes('**') && arithmeticIndicator == '+') {
         temp1 = numbers.replace('**', '^(');
@@ -163,12 +160,14 @@ function otherButtons() {
     dot?.addEventListener('click', () => {
         if (numbers.length > 24)
             return;
-        if (numbers.endsWith('/') ||
-            numbers.endsWith('+') ||
-            numbers.endsWith('-') ||
-            numbers.endsWith('*') ||
-            numbers.endsWith('.'))
-            return;
+        for (let i = 0; i < arithmeticArr.length; i++) {
+            if (numbers.endsWith(arithmeticArr[i]) || numbers.endsWith(')'))
+                return;
+        }
+        for (let i = 0; i < 10; i++) {
+            if (numbers.endsWith(`**${JSON.stringify(i)}`))
+                return;
+        }
         numbers += '.';
         resultName();
         poten = false;
@@ -180,35 +179,26 @@ function otherButtons() {
                 temp1 = numbers.replace('^(', '**');
                 numbers = temp1.replace(')', '');
                 final = Function('return ' + numbers)();
-                numbers = '';
+                numbersReset();
                 eq = true;
                 result.textContent = final;
                 return;
             }
-            if (numbers.startsWith('/') ||
-                numbers.startsWith('+') ||
-                numbers.startsWith('-') ||
-                numbers.startsWith('*') ||
-                numbers.startsWith('.') ||
-                numbers.startsWith('^') ||
-                numbers.endsWith('(') ||
-                numbers.endsWith('/') ||
-                numbers.endsWith('+') ||
-                numbers.endsWith('-') ||
-                numbers.endsWith('*') ||
-                numbers.endsWith('.')) {
-                result.textContent = 'Error';
-                numbers = '';
-                return;
+            for (let i = 0; i < arithmeticArr.length; i++) {
+                if (numbers.startsWith(arithmeticArr[i])
+                    || numbers.endsWith(arithmeticArr[i])) {
+                    result.textContent = 'Error';
+                    numbersReset();
+                    return;
+                }
             }
             final = Function('return ' + numbers)();
             result.textContent = final;
-            numbers = '';
+            numbersReset();
             eq = true;
         }
-        else {
+        else
             return;
-        }
     });
     ce?.addEventListener('click', () => {
         negative = false;
@@ -281,12 +271,10 @@ function otherButtons() {
             numbers += `(-${numberIndicator})`;
             resultName();
             negative = true;
-            console.log(numbers);
         }
         else
             return;
     });
 }
-function resultName() {
-    result.textContent = numbers;
-}
+function resultName() { result.textContent = numbers; }
+function numbersReset() { numbers = ''; }
