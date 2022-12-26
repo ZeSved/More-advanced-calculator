@@ -12,5 +12,6 @@
     "supb",
     "supbb",
     "thirdlast"
-  ]
+  ],
+  "prettier.enable": false
 }
