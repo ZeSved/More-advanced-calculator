@@ -171,20 +171,15 @@ function otherButtons(){ // Dot, equal, CE, Potency, C, Negate
   })
 
   potency?.addEventListener('click', () => {
-    if (poten == true){
+    if (poten){
     numbers += '^('
     resultName()
     poten = false
-  } else {
-    poten = false
-    return
-  }
-  })
+  }})
 
   c?.addEventListener('click', () => {
-    if (startz == false){
-      return
-    } else {
+    if (!startz) return
+    else {
       numbers = numbers.slice(0, -1)
       resultName()
     }
