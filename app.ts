@@ -135,7 +135,7 @@ function otherButtons(){ // Dot, equal, CE, Potency, C, Negate
 
   equal?.addEventListener('click', () => {
     negative = false
-    if (eq == false) {
+    if (!eq) {
       if(numbers.includes('^(') && numbers.includes(')')){
         temp1 = numbers.replace('^(', '**')
         numbers = temp1.replace(')', '')
