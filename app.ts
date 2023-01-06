@@ -19,8 +19,9 @@ const dot = document.querySelector('.dot')
 const ce = document.querySelector('.CE')
 const negate = document.querySelector('.negate')
 const potency = document.querySelector('.potency')
-const numbersss = document.querySelector('.numbersss')
 const c = document.querySelector('.C')
+
+const colorContainer = document.querySelector('.color-section')
 
 let eq = false
 let startz = false
@@ -38,16 +39,55 @@ resultName()
 
 numberInitializer()
 function numberInitializer(){ // All numbers, 0-9
-  one?.addEventListener('click', () => {numberIndicator = '1';numberOperation()})
-  two?.addEventListener('click', () => {numberIndicator = '2';numberOperation()})
-  three?.addEventListener('click', () => {numberIndicator = '3';numberOperation()})
-  four?.addEventListener('click', () => {numberIndicator = '4';numberOperation()})
-  five?.addEventListener('click', () => {numberIndicator = '5';numberOperation()})
-  six?.addEventListener('click', () => {numberIndicator = '6';numberOperation()})
-  seven?.addEventListener('click', () => {numberIndicator = '7';numberOperation()})
-  eight?.addEventListener('click', () => {numberIndicator = '8';numberOperation()})
-  nine?.addEventListener('click', () => {numberIndicator = '9';numberOperation()})
-  zero?.addEventListener('click', () => {numberIndicator = '0';numberOperation()})
+  one?.addEventListener('click', () => {
+    numberIndicator = '1'
+    numberOperation()
+  })
+
+  two?.addEventListener('click', () => {
+    numberIndicator = '2'
+    numberOperation()
+  })
+
+  three?.addEventListener('click', () => {
+    numberIndicator = '3'
+    numberOperation()
+  })
+
+  four?.addEventListener('click', () => {
+    numberIndicator = '4'
+    numberOperation()
+  })
+
+  five?.addEventListener('click', () => {
+    numberIndicator = '5'
+    numberOperation()
+  })
+
+  six?.addEventListener('click', () => {
+    numberIndicator = '6'
+    numberOperation()
+  })
+
+  seven?.addEventListener('click', () => {
+    numberIndicator = '7'
+    numberOperation()
+  })
+
+  eight?.addEventListener('click', () => {
+    numberIndicator = '8'
+    numberOperation()
+  })
+
+  nine?.addEventListener('click', () => {
+    numberIndicator = '9'
+    numberOperation()
+  })
+
+  zero?.addEventListener('click', () => {
+    numberIndicator = '0'
+    numberOperation()
+  })
 }
 
 function numberOperation(){
@@ -80,10 +120,25 @@ function numberOperation(){
 
 arithmeticsInitializer()
 function arithmeticsInitializer(){ // Minus, plus, divide, multiply
-  plus?.addEventListener('click', () => {arithmeticIndicator = '+';arithmeticsOperation()})
-  minus?.addEventListener('click', () => {arithmeticIndicator = '-';arithmeticsOperation()})
-  multiply?.addEventListener('click', () => {arithmeticIndicator = '*';arithmeticsOperation()})
-  divide?.addEventListener('click', () => {arithmeticIndicator = '/';arithmeticsOperation()})
+  plus?.addEventListener('click', () => {
+    arithmeticIndicator = '+'
+    arithmeticsOperation()
+  })
+
+  minus?.addEventListener('click', () => {
+    arithmeticIndicator = '-'
+    arithmeticsOperation()
+  })
+
+  multiply?.addEventListener('click', () => {
+    arithmeticIndicator = '*'
+    arithmeticsOperation()
+  })
+
+  divide?.addEventListener('click', () => {
+    arithmeticIndicator = '/'
+    arithmeticsOperation()
+  })
 }
 
 function arithmeticsOperation(){
@@ -241,3 +296,19 @@ function otherButtons(){ // Dot, equal, CE, Potency, C, Negate
 
 function resultName() {result.textContent = numbers}
 function numbersReset() {numbers = ''}
+
+colorContainer?.addEventListener('click', (e) => {
+  const clickedDiv = e.target
+
+  selected(clickedDiv)
+})
+
+function selected(div:any){
+  const selectedElms = colorContainer?.querySelectorAll('.selected')
+
+  selectedElms?.forEach((elm) => {
+    elm.classList.remove('selected')
+  })
+
+  div.classList.add('selected')
+}

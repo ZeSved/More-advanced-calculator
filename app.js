@@ -19,8 +19,8 @@ const dot = document.querySelector('.dot');
 const ce = document.querySelector('.CE');
 const negate = document.querySelector('.negate');
 const potency = document.querySelector('.potency');
-const numbersss = document.querySelector('.numbersss');
 const c = document.querySelector('.C');
+const colorContainer = document.querySelector('.color-section');
 let eq = false;
 let startz = false;
 let final;
@@ -35,16 +35,46 @@ const numberArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 resultName();
 numberInitializer();
 function numberInitializer() {
-    one?.addEventListener('click', () => { numberIndicator = '1'; numberOperation(); });
-    two?.addEventListener('click', () => { numberIndicator = '2'; numberOperation(); });
-    three?.addEventListener('click', () => { numberIndicator = '3'; numberOperation(); });
-    four?.addEventListener('click', () => { numberIndicator = '4'; numberOperation(); });
-    five?.addEventListener('click', () => { numberIndicator = '5'; numberOperation(); });
-    six?.addEventListener('click', () => { numberIndicator = '6'; numberOperation(); });
-    seven?.addEventListener('click', () => { numberIndicator = '7'; numberOperation(); });
-    eight?.addEventListener('click', () => { numberIndicator = '8'; numberOperation(); });
-    nine?.addEventListener('click', () => { numberIndicator = '9'; numberOperation(); });
-    zero?.addEventListener('click', () => { numberIndicator = '0'; numberOperation(); });
+    one?.addEventListener('click', () => {
+        numberIndicator = '1';
+        numberOperation();
+    });
+    two?.addEventListener('click', () => {
+        numberIndicator = '2';
+        numberOperation();
+    });
+    three?.addEventListener('click', () => {
+        numberIndicator = '3';
+        numberOperation();
+    });
+    four?.addEventListener('click', () => {
+        numberIndicator = '4';
+        numberOperation();
+    });
+    five?.addEventListener('click', () => {
+        numberIndicator = '5';
+        numberOperation();
+    });
+    six?.addEventListener('click', () => {
+        numberIndicator = '6';
+        numberOperation();
+    });
+    seven?.addEventListener('click', () => {
+        numberIndicator = '7';
+        numberOperation();
+    });
+    eight?.addEventListener('click', () => {
+        numberIndicator = '8';
+        numberOperation();
+    });
+    nine?.addEventListener('click', () => {
+        numberIndicator = '9';
+        numberOperation();
+    });
+    zero?.addEventListener('click', () => {
+        numberIndicator = '0';
+        numberOperation();
+    });
 }
 function numberOperation() {
     if (numbers.length > 24)
@@ -76,10 +106,22 @@ function numberOperation() {
 }
 arithmeticsInitializer();
 function arithmeticsInitializer() {
-    plus?.addEventListener('click', () => { arithmeticIndicator = '+'; arithmeticsOperation(); });
-    minus?.addEventListener('click', () => { arithmeticIndicator = '-'; arithmeticsOperation(); });
-    multiply?.addEventListener('click', () => { arithmeticIndicator = '*'; arithmeticsOperation(); });
-    divide?.addEventListener('click', () => { arithmeticIndicator = '/'; arithmeticsOperation(); });
+    plus?.addEventListener('click', () => {
+        arithmeticIndicator = '+';
+        arithmeticsOperation();
+    });
+    minus?.addEventListener('click', () => {
+        arithmeticIndicator = '-';
+        arithmeticsOperation();
+    });
+    multiply?.addEventListener('click', () => {
+        arithmeticIndicator = '*';
+        arithmeticsOperation();
+    });
+    divide?.addEventListener('click', () => {
+        arithmeticIndicator = '/';
+        arithmeticsOperation();
+    });
 }
 function arithmeticsOperation() {
     if (numbers.length > 24)
@@ -132,7 +174,7 @@ function otherButtons() {
     });
     equal?.addEventListener('click', () => {
         negative = false;
-        if (eq == false) {
+        if (!eq) {
             if (numbers.includes('^(') && numbers.includes(')')) {
                 temp1 = numbers.replace('^(', '**');
                 numbers = temp1.replace(')', '');
@@ -165,20 +207,15 @@ function otherButtons() {
         resultName();
     });
     potency?.addEventListener('click', () => {
-        if (poten == true) {
+        if (poten) {
             numbers += '^(';
             resultName();
             poten = false;
         }
-        else {
-            poten = false;
-            return;
-        }
     });
     c?.addEventListener('click', () => {
-        if (startz == false) {
+        if (!startz)
             return;
-        }
         else {
             numbers = numbers.slice(0, -1);
             resultName();
@@ -236,3 +273,14 @@ function otherButtons() {
 }
 function resultName() { result.textContent = numbers; }
 function numbersReset() { numbers = ''; }
+colorContainer?.addEventListener('click', (e) => {
+    const clickedDiv = e.target;
+    selected(clickedDiv);
+});
+function selected(div) {
+    const selectedElms = colorContainer?.querySelectorAll('.selected');
+    selectedElms?.forEach((elm) => {
+        elm.classList.remove('selected');
+    });
+    div.classList.add('selected');
+}
