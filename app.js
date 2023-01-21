@@ -273,14 +273,13 @@ function otherButtons() {
 }
 function resultName() { result.textContent = numbers; }
 function numbersReset() { numbers = ''; }
-colorContainer?.addEventListener('click', (e) => {
+colorContainer.addEventListener('click', (e) => {
     const clickedDiv = e.target;
-    selected(clickedDiv);
+    if (clickedDiv.classList.value === 'color-section')
+        return;
+    applySelectedOutLine(clickedDiv);
 });
-function selected(div) {
-    const selectedElms = colorContainer?.querySelectorAll('.selected');
-    selectedElms?.forEach((elm) => {
-        elm.classList.remove('selected');
-    });
-    div.classList.add('selected');
-}
+((elm) => {
+    elm.classList.remove('selected');
+});
+div.classList.add('selected');

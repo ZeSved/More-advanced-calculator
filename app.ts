@@ -21,7 +21,7 @@ const negate = document.querySelector('.negate')
 const potency = document.querySelector('.potency')
 const c = document.querySelector('.C')
 
-const colorContainer = document.querySelector('.color-section')
+const colorContainer = document.querySelector<HTMLElement>('.color-section')!
 
 let eq = false
 let startz = false
@@ -297,18 +297,21 @@ function otherButtons(){ // Dot, equal, CE, Potency, C, Negate
 function resultName() {result.textContent = numbers}
 function numbersReset() {numbers = ''}
 
-colorContainer?.addEventListener('click', (e) => {
-  const clickedDiv = e.target
+colorContainer.addEventListener('click', (e) => {
+  const clickedDiv = e.target! as HTMLDivElement
 
-  selected(clickedDiv)
+  if (clickedDiv.classList.value === 'color-section') return
+
+  applySelectedOutLine(clickedDiv)
 })
 
-function selected(div:any){
-  const selectedElms = colorContainer?.querySelectorAll('.selected')
+// Process functions
+function applySelectedOutLine(div: HTMLDivElement) {
+const selectedElms = colorContainer!.querySelectorAll('.selected')
 
-  selectedElms?.forEach((elm) => {
-    elm.classList.remove('selected')
-  })
+selectedElms.forEach((elm) => {
+  elm.classList.remove('selected')
+})
 
-  div.classList.add('selected')
+div.classList.add('selected')
 }
