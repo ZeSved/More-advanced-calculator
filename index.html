@@ -9,97 +9,43 @@
   <title>Calculator</title>
 </head>
 <body>
-  <div class="main">
-    <div>
-      <p class="result"></p>
+  <div class="wrapper">
+    <div class="calculator">
+      <div class="main">
+        <div>
+          <p class="result"></p>
+        </div>
+        <section class="keys">
+            <button class="potency">x<sup class="supb">y</sup></button>
+            <button class="CE">CE</button>
+            <button class="C">&larr;</button>
+            <button class="divide">/</button>
+            <button class="one">1</button>
+            <button class="two">2</button>
+            <button class="three">3</button>
+            <button class="multiply">*</button>
+            <button class="four">4</button>
+            <button class="five">5</button>
+            <button class="six">6</button>
+            <button class="minus">-</button>
+            <button class="seven">7</button>
+            <button class="eight">8</button>
+            <button class="nine">9</button>
+            <button class="plus">+</button>
+            <button class="negate">+/-</button>
+            <button class="zero">0</button>
+            <button class="dot">.</button>
+            <button class="equal">=</button>
+        </section>
+      </div>
     </div>
-    <section>
-      <span>
-        <button class="potency">x<sup class="supb">y</sup></button>
-      </span>
-      <span>
-        <button class="CE">CE</button>
-      </span>
-      <span>
-        <button class="C">&larr;</button>
-      </span>
-      <span>
-        <button class="divide">/</button>
-      </span>
-    </section>
-    <section>
-      <span>
-        <button class="one">1</button>
-      </span>
-      <span>
-        <button class="two">2</button>
-      </span>
-      <span>
-        <button class="three">3</button>
-      </span>
-      <span>
-        <button class="multiply">*</button>
-      </span>
-    </section>
-    <section>
-      <span>
-        <button class="four">4</button>
-      </span>
-      <span>
-        <button class="five">5</button>
-      </span>
-      <span>
-        <button class="six">6</button>
-      </span>
-      <span>
-        <button class="minus">-</button>
-      </span>
-    </section>
-    <section>
-      <span>
-        <button class="seven">7</button>
-      </span>
-      <span>
-        <button class="eight">8</button>
-      </span>
-      <span>
-        <button class="nine">9</button>
-      </span>
-      <span>
-        <button class="plus">+</button>
-      </span>
-    </section>
-    <section>
-      <span>
-        <button class="negate">+/-</button>
-      </span>
-      <span>
-        <button class="zero">0</button>
-      </span>
-      <span>
-        <button class="dot">.</button>
-      </span>
-      <span>
-        <button class="equal">=</button>
-      </span>
-    </section>
+    <footer>
+      <h6>Bugs that I probably wont fix:</h6>
+      <ul>
+        <li>Adding more than one power (x<sup class="supbb">y</sup>) may mess things up.</li>
+        <li>The system can't calculate things such as 23(-8), you have to write 23*(-8) instead.</li>
+      </ul>
+    </footer>
   </div>
-  <section class="color-section">
-    <div style="background-color: red;"></div>
-    <div style="background-color: orange;"></div>
-    <div style="background-color: yellow;"></div>
-    <div style="background-color: green;"></div>
-    <div style="background-color: blue;"></div>
-    <div style="background-color: indigo;"></div>
-    <div style="background-color: violet;"></div>
-    <div style="background-color: white;"></div>
-  </section>
-  <footer>
-    <ul>
-      <li><h6>Bugs that I probably wont fix:</h6></li>
-      <li>Adding more than one power (x<sup class="supbb">y</sup>) may mess things up.</li>
-      <li>The system can't calculate things such as 23(-8), you have to write 23*(-8) instead.</li>
-    </ul>
-  </footer>
 </body>
 </html>
