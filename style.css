@@ -29,19 +29,16 @@ body {
 }
 
 .calculator {
-  flex-grow: 1;
-
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
 }
 
 .main {
   flex-basis: 400px;
 
   text-align: center;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   border: 4px solid rgb(56, 56, 56);
   border-radius: 20px;
   max-width: 400px;
@@ -51,13 +48,13 @@ body {
 
 .result {
   color: #ffffff;
-  height: 60px;
   margin: auto;
   text-align: right;
   background-color: rgb(10, 10, 10);
 
   border-radius: 15px;
   padding: 8px;
+  word-wrap: break-word;
 
   margin-bottom: 20px;
 }
@@ -98,6 +95,10 @@ button:hover {
 
 footer {
   color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 footer > h6 {
