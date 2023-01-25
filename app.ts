@@ -21,24 +21,22 @@ const negate = document.querySelector('.negate')
 const potency = document.querySelector('.potency')
 const c = document.querySelector('.C')
 
-const colorContainer = document.querySelector<HTMLElement>('.color-section')!
-
 let eq = false
 let startz = false
-let final:any
-let numbers:string = '0'
+let final: any
+let numbers: string = '0'
 let temp1
 let poten = false
-let numberIndicator:string
-let arithmeticIndicator:string
-let negative:boolean = false
+let numberIndicator: string
+let arithmeticIndicator: string
+let negative: boolean = false
 const arithmeticArr = ['+', '-', '*', '/', '(', '.', '^']
 const numberArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 resultName()
 
 numberInitializer()
-function numberInitializer(){ // All numbers, 0-9
+function numberInitializer() { // All numbers, 0-9
   one?.addEventListener('click', () => {
     numberIndicator = '1'
     numberOperation()
@@ -90,16 +88,16 @@ function numberInitializer(){ // All numbers, 0-9
   })
 }
 
-function numberOperation(){
+function numberOperation() {
   if (numbers.length > 24) return
 
-  if (numbers == '0' && startz == false){
+  if (numbers == '0' && startz == false) {
     numbers = numberIndicator
     startz = true
     eq = false
     poten = true
     resultName()
-  } else if (numbers.slice(-3).startsWith('**')){
+  } else if (numbers.slice(-3).startsWith('**')) {
     return
   } else {
     numbers += numberIndicator
@@ -108,8 +106,8 @@ function numberOperation(){
     resultName()
   }
 
-  if (numbers[numbers.length-2].endsWith('(')
-   || numbers[numbers.length-3].endsWith('(')){
+  if (numbers[numbers.length - 2].endsWith('(')
+    || numbers[numbers.length - 3].endsWith('(')) {
     numbers += ')'
     resultName()
     temp1 = numbers.replace('^(', '**')
@@ -119,7 +117,7 @@ function numberOperation(){
 }
 
 arithmeticsInitializer()
-function arithmeticsInitializer(){ // Minus, plus, divide, multiply
+function arithmeticsInitializer() { // Minus, plus, divide, multiply
   plus?.addEventListener('click', () => {
     arithmeticIndicator = '+'
     arithmeticsOperation()
@@ -141,29 +139,29 @@ function arithmeticsInitializer(){ // Minus, plus, divide, multiply
   })
 }
 
-function arithmeticsOperation(){
+function arithmeticsOperation() {
   if (numbers.length > 24) return
 
   const tempArr = ['/', '+', '-', '*']
   for (let i = 0; i < tempArr.length; i++) {
-    if(numbers.endsWith(tempArr[i])) return
+    if (numbers.endsWith(tempArr[i])) return
   }
-    
+
   numbers += arithmeticIndicator
 
-  if (numbers.includes('**') && arithmeticIndicator == '+'){
+  if (numbers.includes('**') && arithmeticIndicator == '+') {
     temp1 = numbers.replace('**', '^(')
     numbers = temp1.replace('+', ')')
     numbers += '+'
-  } else if (numbers.includes('**') && arithmeticIndicator == '-'){
+  } else if (numbers.includes('**') && arithmeticIndicator == '-') {
     temp1 = numbers.replace('**', '^(')
     numbers = temp1.replace('-', ')')
     numbers += '-'
-  } else if (numbers.includes('**') && arithmeticIndicator == '*'){
+  } else if (numbers.includes('**') && arithmeticIndicator == '*') {
     temp1 = numbers.replace('**', '^(')
     numbers = temp1.replace('*', ')')
     numbers += '*'
-  } else if (numbers.includes('**') && arithmeticIndicator == '/'){
+  } else if (numbers.includes('**') && arithmeticIndicator == '/') {
     temp1 = numbers.replace('**', '^(')
     numbers = temp1.replace('/', ')')
     numbers += '/'
@@ -173,15 +171,17 @@ function arithmeticsOperation(){
 }
 
 otherButtons()
-function otherButtons(){ // Dot, equal, CE, Potency, C, Negate
+function otherButtons() { // Dot, equal, CE, Potency, C, Negate
   dot?.addEventListener('click', () => {
     if (numbers.length > 24) return
-    
+
     for (let i = 0; i < arithmeticArr.length; i++) {
-      if (numbers.endsWith(arithmeticArr[i]) || numbers.endsWith(')')) return}
-    
+      if (numbers.endsWith(arithmeticArr[i]) || numbers.endsWith(')')) return
+    }
+
     for (let i = 0; i < 10; i++) {
-      if(numbers.endsWith(`**${JSON.stringify(i)}`)) return}
+      if (numbers.endsWith(`**${JSON.stringify(i)}`)) return
+    }
 
     numbers += '.'
     resultName()
@@ -191,7 +191,7 @@ function otherButtons(){ // Dot, equal, CE, Potency, C, Negate
   equal?.addEventListener('click', () => {
     negative = false
     if (!eq) {
-      if(numbers.includes('^(') && numbers.includes(')')){
+      if (numbers.includes('^(') && numbers.includes(')')) {
         temp1 = numbers.replace('^(', '**')
         numbers = temp1.replace(')', '')
 
@@ -204,11 +204,11 @@ function otherButtons(){ // Dot, equal, CE, Potency, C, Negate
 
       for (let i = 0; i < arithmeticArr.length; i++) {
         if (numbers.startsWith(arithmeticArr[i])
-         || numbers.endsWith(arithmeticArr[i])){
+          || numbers.endsWith(arithmeticArr[i])) {
           result.textContent = 'Error'
           numbersReset()
           return
-         }
+        }
       }
 
       final = Function('return ' + numbers)()
@@ -217,7 +217,7 @@ function otherButtons(){ // Dot, equal, CE, Potency, C, Negate
       eq = true
     } else return
   })
-  
+
   ce?.addEventListener('click', () => {
     negative = false
     startz = false
@@ -226,11 +226,12 @@ function otherButtons(){ // Dot, equal, CE, Potency, C, Negate
   })
 
   potency?.addEventListener('click', () => {
-    if (poten){
-    numbers += '^('
-    resultName()
-    poten = false
-  }})
+    if (poten) {
+      numbers += '^('
+      resultName()
+      poten = false
+    }
+  })
 
   c?.addEventListener('click', () => {
     if (!startz) return
@@ -238,28 +239,28 @@ function otherButtons(){ // Dot, equal, CE, Potency, C, Negate
       numbers = numbers.slice(0, -1)
       resultName()
     }
-    
-    if (result.textContent == ''){
+
+    if (result.textContent == '') {
       startz = false
       numbers = '0'
       resultName()
     }
-    
-    if (numbers.endsWith(')')){
+
+    if (numbers.endsWith(')')) {
       numbers = numbers.slice(0, -2)
       poten = true
       resultName()
-    } else if (numbers.endsWith('(')){
+    } else if (numbers.endsWith('(')) {
       numbers = numbers.slice(0, -2)
       poten = true
       resultName()
     }
 
-    if (numbers.endsWith('*') || numbers.endsWith('^')){
+    if (numbers.endsWith('*') || numbers.endsWith('^')) {
       numbers = numbers.slice(0, -1)
     }
 
-    if (result.textContent?.includes('**')){
+    if (result.textContent?.includes('**')) {
       result.textContent = result.textContent.replace('**', '^(')
     }
   })
@@ -267,7 +268,7 @@ function otherButtons(){ // Dot, equal, CE, Potency, C, Negate
   negate?.addEventListener('click', () => {
     if (numbers.endsWith('.')) return
 
-    if (negative == true){
+    if (negative == true) {
       numbers = numbers.slice(0, -4)
       numbers += numberIndicator
       resultName()
@@ -276,15 +277,15 @@ function otherButtons(){ // Dot, equal, CE, Potency, C, Negate
       return
     }
 
-    if (numbers.endsWith('1')||
-    numbers.endsWith('2')||
-    numbers.endsWith('3')||
-    numbers.endsWith('4')||
-    numbers.endsWith('5')||
-    numbers.endsWith('6')||
-    numbers.endsWith('7')||
-    numbers.endsWith('8')||
-    numbers.endsWith('9')){
+    if (numbers.endsWith('1') ||
+      numbers.endsWith('2') ||
+      numbers.endsWith('3') ||
+      numbers.endsWith('4') ||
+      numbers.endsWith('5') ||
+      numbers.endsWith('6') ||
+      numbers.endsWith('7') ||
+      numbers.endsWith('8') ||
+      numbers.endsWith('9')) {
       numbers = numbers.slice(0, -1)
       numbers += `(-${numberIndicator})`
       resultName()
@@ -294,24 +295,10 @@ function otherButtons(){ // Dot, equal, CE, Potency, C, Negate
   })
 }
 
-function resultName() {result.textContent = numbers}
-function numbersReset() {numbers = ''}
+function resultName() {
+  result.textContent = numbers
+}
 
-colorContainer.addEventListener('click', (e) => {
-  const clickedDiv = e.target! as HTMLDivElement
-
-  if (clickedDiv.classList.value === 'color-section') return
-
-  applySelectedOutLine(clickedDiv)
-})
-
-// Process functions
-function applySelectedOutLine(div: HTMLDivElement) {
-const selectedElms = colorContainer!.querySelectorAll('.selected')
-
-selectedElms.forEach((elm) => {
-  elm.classList.remove('selected')
-})
-
-div.classList.add('selected')
+function numbersReset() {
+  numbers = ''
 }

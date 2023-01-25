@@ -20,7 +20,6 @@ const ce = document.querySelector('.CE');
 const negate = document.querySelector('.negate');
 const potency = document.querySelector('.potency');
 const c = document.querySelector('.C');
-const colorContainer = document.querySelector('.color-section');
 let eq = false;
 let startz = false;
 let final;
@@ -271,15 +270,9 @@ function otherButtons() {
             return;
     });
 }
-function resultName() { result.textContent = numbers; }
-function numbersReset() { numbers = ''; }
-colorContainer.addEventListener('click', (e) => {
-    const clickedDiv = e.target;
-    if (clickedDiv.classList.value === 'color-section')
-        return;
-    applySelectedOutLine(clickedDiv);
-});
-((elm) => {
-    elm.classList.remove('selected');
-});
-div.classList.add('selected');
+function resultName() {
+    result.textContent = numbers;
+}
+function numbersReset() {
+    numbers = '';
+}
