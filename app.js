@@ -20,6 +20,7 @@ const ce = document.querySelector('.CE');
 const negate = document.querySelector('.negate');
 const potency = document.querySelector('.potency');
 const c = document.querySelector('.C');
+const parantheses = document.querySelector('.parantheses'); // TODO
 let eq = false;
 let startz = false;
 let final;
@@ -76,8 +77,14 @@ function numberInitializer() {
     });
 }
 function numberOperation() {
-    if (numbers.length > 24)
+    if (numbers.length > 71)
         return;
+    if (negative) {
+        numbers = numbers.slice(0, -1);
+        numbers += `${numberIndicator})`;
+        resultName();
+        return;
+    }
     if (numbers == '0' && startz == false) {
         numbers = numberIndicator;
         startz = true;
@@ -123,7 +130,7 @@ function arithmeticsInitializer() {
     });
 }
 function arithmeticsOperation() {
-    if (numbers.length > 24)
+    if (numbers.length > 71)
         return;
     const tempArr = ['/', '+', '-', '*'];
     for (let i = 0; i < tempArr.length; i++) {
@@ -157,7 +164,7 @@ function arithmeticsOperation() {
 otherButtons();
 function otherButtons() {
     dot?.addEventListener('click', () => {
-        if (numbers.length > 24)
+        if (numbers.length > 71)
             return;
         for (let i = 0; i < arithmeticArr.length; i++) {
             if (numbers.endsWith(arithmeticArr[i]) || numbers.endsWith(')'))
@@ -219,17 +226,22 @@ function otherButtons() {
             numbers = numbers.slice(0, -1);
             resultName();
         }
+        if (negative) {
+            numbers = numbers.slice(0, -1);
+            numbers += ')';
+            resultName();
+        }
         if (result.textContent == '') {
             startz = false;
             numbers = '0';
             resultName();
         }
-        if (numbers.endsWith(')')) {
+        if (numbers.endsWith(')') && !poten) {
             numbers = numbers.slice(0, -2);
             poten = true;
             resultName();
         }
-        else if (numbers.endsWith('(')) {
+        else if (numbers.endsWith('(') && !poten) {
             numbers = numbers.slice(0, -2);
             poten = true;
             resultName();
@@ -244,9 +256,11 @@ function otherButtons() {
     negate?.addEventListener('click', () => {
         if (numbers.endsWith('.'))
             return;
+        if (!poten)
+            return;
         if (negative == true) {
-            numbers = numbers.slice(0, -4);
-            numbers += numberIndicator;
+            numbers = numbers.slice(0, -1);
+            numbers = numbers.replace('(-', '');
             resultName();
             negative = false;
             console.log(numbers);
@@ -261,8 +275,11 @@ function otherButtons() {
             numbers.endsWith('7') ||
             numbers.endsWith('8') ||
             numbers.endsWith('9')) {
-            numbers = numbers.slice(0, -1);
-            numbers += `(-${numberIndicator})`;
+            const numbersNeededForNegation = numbers.split(/[/*+-]/);
+            const temp = numbersNeededForNegation[numbersNeededForNegation.length - 1];
+            const a = numbersNeededForNegation.pop();
+            numbers = numbers.slice(0, 2);
+            numbers += `(-${temp})`;
             resultName();
             negative = true;
         }
