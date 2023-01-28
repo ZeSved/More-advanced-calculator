@@ -30,6 +30,7 @@ let poten = false;
 let numberIndicator;
 let arithmeticIndicator;
 let negative = false;
+let paranthesesStarted = false;
 const arithmeticArr = ['+', '-', '*', '/', '(', '.', '^'];
 const numberArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 resultName();
@@ -101,14 +102,16 @@ function numberOperation() {
         poten = true;
         resultName();
     }
-    if (numbers[numbers.length - 2].endsWith('(')
-        || numbers[numbers.length - 3].endsWith('(')) {
+    if (numbers[numbers.length - 2].endsWith('(') && !paranthesesStarted
+        || numbers[numbers.length - 3].endsWith('(') && !paranthesesStarted) {
         numbers += ')';
         resultName();
         temp1 = numbers.replace('^(', '**');
         numbers = temp1.replace(')', '');
         poten = false;
     }
+    else
+        return;
 }
 arithmeticsInitializer();
 function arithmeticsInitializer() {
@@ -136,6 +139,9 @@ function arithmeticsOperation() {
     for (let i = 0; i < tempArr.length; i++) {
         if (numbers.endsWith(tempArr[i]))
             return;
+    }
+    if (numbers.endsWith(')')) {
+        negative = false;
     }
     numbers += arithmeticIndicator;
     if (numbers.includes('**') && arithmeticIndicator == '+') {
@@ -277,7 +283,7 @@ function otherButtons() {
             numbers.endsWith('9')) {
             const numbersNeededForNegation = numbers.split(/[/*+-]/);
             const temp = numbersNeededForNegation[numbersNeededForNegation.length - 1];
-            const a = numbersNeededForNegation.pop();
+            const variableThatIsNotUsed = numbersNeededForNegation.pop();
             numbers = numbers.slice(0, 2);
             numbers += `(-${temp})`;
             resultName();
@@ -285,6 +291,18 @@ function otherButtons() {
         }
         else
             return;
+    });
+    parantheses?.addEventListener('click', () => {
+        if (!paranthesesStarted) {
+            paranthesesStarted = true;
+            numbers += '(';
+            resultName();
+        }
+        else if (paranthesesStarted) {
+            paranthesesStarted = false;
+            numbers += ')';
+            resultName();
+        }
     });
 }
 function resultName() {

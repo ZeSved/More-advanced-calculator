@@ -31,6 +31,7 @@ let poten: boolean = false
 let numberIndicator: string
 let arithmeticIndicator: string
 let negative: boolean = false
+let paranthesesStarted: boolean = false
 const arithmeticArr = ['+', '-', '*', '/', '(', '.', '^']
 const numberArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
@@ -114,14 +115,14 @@ function numberOperation() {
     resultName()
   }
 
-  if (numbers[numbers.length - 2].endsWith('(')
-    || numbers[numbers.length - 3].endsWith('(')) {
+  if (numbers[numbers.length - 2].endsWith('(') && !paranthesesStarted
+    || numbers[numbers.length - 3].endsWith('(') && !paranthesesStarted) {
     numbers += ')'
     resultName()
     temp1 = numbers.replace('^(', '**')
     numbers = temp1.replace(')', '')
     poten = false
-  }
+  } else return
 }
 
 arithmeticsInitializer()
@@ -155,6 +156,10 @@ function arithmeticsOperation() {
     if (numbers.endsWith(tempArr[i])) return
   }
 
+  if (numbers.endsWith(')')) {
+    negative = false
+  }
+
   numbers += arithmeticIndicator
 
   if (numbers.includes('**') && arithmeticIndicator == '+') {
@@ -174,6 +179,7 @@ function arithmeticsOperation() {
     numbers = temp1.replace('/', ')')
     numbers += '/'
   }
+
   resultName()
   poten = false
 }
@@ -303,13 +309,26 @@ function otherButtons() { // Dot, equal, CE, Potency, C, Negate
       numbers.endsWith('9')) {
       const numbersNeededForNegation: string[] = numbers.split(/[/*+-]/)
       const temp = numbersNeededForNegation[numbersNeededForNegation.length - 1]
-      const a = numbersNeededForNegation.pop()!
+      const variableThatIsNotUsed = numbersNeededForNegation.pop()!
+
       numbers = numbers.slice(0, 2)
       numbers += `(-${temp})`
       resultName()
       negative = true
     } else return
 
+  })
+
+  parantheses?.addEventListener('click', () => {
+    if (!paranthesesStarted) {
+      paranthesesStarted = true
+      numbers += '('
+      resultName()
+    } else if (paranthesesStarted) {
+      paranthesesStarted = false
+      numbers += ')'
+      resultName()
+    }
   })
 }
 
